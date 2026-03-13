@@ -2,18 +2,18 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="なぜその編集で人は最後まで見るのか。脳科学の言葉で、Flip The Bird の編集の答えを全部書いた。">
-<meta property="og:title" content="EDITING AS BRAIN SCIENCE. — Flip The Bird">
-<meta property="og:description" content="なぜその編集で人は最後まで見るのか。脳科学の言葉で、Flip The Bird の編集の答えを全部書いた。">
+<meta name="description" content="クオリティの高い動画を脳科学の観点から分析した、編集手法の仮説集。">
+<meta property="og:title" content="EDITING AS BRAIN SCIENCE.">
+<meta property="og:description" content="クオリティの高い動画を脳科学の観点から分析した、編集手法の仮説集。">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0ea5e9">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EDITING AS BRAIN SCIENCE. — Flip The Bird</title>
+<title>EDITING AS BRAIN SCIENCE.</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Shippori+Mincho:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* =====================================================
-   EDITING AS BRAIN SCIENCE. — Flip The Bird
+   EDITING AS BRAIN SCIENCE.
    Design v7 — DARK EDITORIAL / FILM BIBLE
    コンセプト: ドキュメンタリー制作会社の内部バイブル
    暗室、フィルム、手書きノート、荒削りな本物感
@@ -81,6 +81,7 @@ body{
   font-weight:400;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  /* ポスタリゼーション */
   /* フィルムグレイン */
   background-image:
     url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
@@ -178,17 +179,17 @@ body{
 }
 .ch-title{
   font-family:'Bebas Neue',cursive;
-  font-size:clamp(52px,8vw,108px);
-  line-height:.86;letter-spacing:.02em;
+  font-size:clamp(32px,5vw,64px);
+  line-height:.92;letter-spacing:.02em;
   margin-bottom:20px;color:var(--text);
   position:relative;display:block;
 }
 .ch-title::after{
   content:'';
   display:block;
-  width:40px;height:1px;
-  margin-top:16px;
-  background:var(--grad-main);
+  width:40px;height:2px;
+  margin-top:14px;
+  background:var(--accent);
 }
 .ch-sub{
   font-family:'Shippori Mincho B1','Shippori Mincho',serif;
@@ -597,9 +598,75 @@ footer{
 @media(max-width:420px){
   .toc-grid,.angle-grid{grid-template-columns:1fr}
 }
+
+/* ─────────────────────────────────────
+   POSTERIZATION EFFECTS
+───────────────────────────────────── */
+/* ヒーローのポスター感: ハードエッジなグラデーションストップ */
+.hero::before{
+  background:
+    radial-gradient(ellipse 55% 60% at 85% 100%,rgba(232,197,71,.12) 0%,rgba(232,197,71,.12) 30%,transparent 30.1%),
+    radial-gradient(ellipse 35% 40% at 5% 0%,rgba(232,68,68,.08) 0%,rgba(232,68,68,.08) 40%,transparent 40.1%);
+}
+/* ch-titleをポスター的な影付きに */
+.ch-title{
+  text-shadow:
+    4px 4px 0 rgba(232,197,71,.08),
+    -1px -1px 0 rgba(0,0,0,.4);
+}
+/* セクション境界をより強く */
+.sec,.sec-alt,.sec-dark,.sec-dark2{
+  position:relative;
+}
+/* カードにポスター的な色帯 */
+.card:nth-child(4n+1) .card-title{border-top:2px solid var(--accent)}
+.card:nth-child(4n+2) .card-title{border-top:2px solid var(--red)}
+.card:nth-child(4n+3) .card-title{border-top:2px solid var(--cyan)}
+.card:nth-child(4n+4) .card-title{border-top:2px solid var(--blue)}
+/* グレインオーバーレイ強化 */
+body::after{
+  content:'';
+  position:fixed;inset:0;z-index:9999;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+  mix-blend-mode:overlay;
+}
+/* エンジンカードのポスター帯 */
+.engine-card:nth-child(odd){border-left:3px solid var(--accent)}
+.engine-card:nth-child(even){border-left:3px solid var(--cyan)}
+/* WFナンバーをよりポスター的に */
+.wf-num{
+  border-radius:0;
+  clip-path:polygon(0 0,100% 0,100% 75%,75% 100%,0 100%);
+}
+
 </style>
 </head>
 <body>
+
+<!-- POSTERIZE FILTER -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="poster" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <!-- ステップ1: コントラスト爆上げ -->
+      <feComponentTransfer result="stepped">
+        <feFuncR type="discrete" tableValues="0 0.12 0.25 0.42 0.62 0.82 1"/>
+        <feFuncG type="discrete" tableValues="0 0.10 0.22 0.38 0.58 0.78 1"/>
+        <feFuncB type="discrete" tableValues="0 0.08 0.18 0.32 0.52 0.72 1"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="grain-overlay" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" seed="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blended"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="1"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+</svg>
+
 
 <!-- FILM HEADER -->
 <header class="film-header">
@@ -607,7 +674,7 @@ footer{
     <div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div>
   </div>
   <div class="film-title-bar">
-    <span class="film-brand">FLIP THE BIRD</span>
+    <span class="film-brand">EDIT MANUAL</span>
     <span class="film-sub">Edit Manual</span>
     <span class="film-ver">v2.0 — 脳漿統合版</span>
   </div>
@@ -656,7 +723,7 @@ footer{
   <div class="hero-inner">
     <div class="hero-left">
       <!-- eyebrow -->
-      <div class="hero-eyebrow">Flip The Bird — Documentary Production</div>
+      <div class="hero-eyebrow">Documentary Production</div>
 
       <!-- KV タイトル -->
       <div class="hero-kv">EDITING AS</div>
@@ -671,7 +738,7 @@ footer{
       </div>
 
       <p class="hero-desc">
-        なぜその編集で、人は最後まで見るのか。<br>脳科学の言葉で、Flip The Bird の答えを全部書いた。
+        クオリティの高い動画を脳科学の観点から分析した、<br>編集手法の仮説集です。
       </p>
     </div>
     <!-- 右側の縦ドット線 -->
@@ -701,11 +768,11 @@ footer{
   <div class="container">
     <span class="ch-label">CHAPTER 00</span>
     <h2 class="ch-title">マインドセット</h2>
-    <p class="ch-sub">このマニュアルを読む前に、まずこの話を聞いてほしい</p>
+    <p class="ch-sub">このマニュアルを読む前に、まずこの話をお読みください。</p>
 
     <!-- ── 導入：30秒の壁 ── -->
     <p style="color:var(--text-2);font-size:16px;line-height:2.1;margin-bottom:0">
-      人間の脳は、30秒以上同じ動画を見続けることができない。
+      人間の脳は、30秒以上同じ動画を見続けることができありません。
     </p>
     <p style="color:var(--text-2);font-size:15px;line-height:2.1;margin-bottom:32px">
       それ以上は「飽きる」——もっと正確に言うと、<strong style="color:var(--text-2)">「拒絶」</strong>する。
@@ -715,16 +782,16 @@ footer{
     <div style="border-left:2px solid var(--border-2);padding:20px 24px;margin-bottom:32px;background:rgba(232,197,71,.06)">
       <p style="color:var(--text-2);font-size:14px;line-height:2;margin-bottom:12px">なぜか。脳のつくりを考えれば、すぐ分かる。</p>
       <p style="color:var(--text-2);font-size:15px;line-height:2.1;margin-bottom:12px">
-        脳は体重の約 <strong style="color:var(--accent);font-size:22px;font-family:'Bebas Neue',cursive;letter-spacing:.05em">2%</strong> しかない。
+        脳は体重の約 <strong style="color:var(--accent);font-size:22px;font-family:'Bebas Neue',cursive;letter-spacing:.05em">2%</strong> しかありません。
         なのに消費エネルギーは全体の <strong style="color:var(--accent);font-size:22px;font-family:'Bebas Neue',cursive;letter-spacing:.05em">20%</strong> を占める。
       </p>
       <p style="color:var(--text-2);font-size:14px;line-height:2">
-        つまり脳は「小さいのに、燃費が異常に悪い臓器」だ。
+        つまり脳は「小さいのに、燃費が異常に悪い臓器」です。
       </p>
     </div>
 
     <p style="color:var(--text-2);font-size:15px;line-height:2.1;margin-bottom:12px">
-      だから脳は常に、無意識でこう考えている。
+      だから脳は常に、無意識でこう考えています。
     </p>
     <div style="text-align:center;padding:28px 0;margin-bottom:32px">
       <p style="font-family:'Noto Serif JP',serif;font-size:20px;color:var(--text);line-height:1.7;font-style:italic">
@@ -734,8 +801,8 @@ footer{
 
     <p style="color:var(--text-2);font-size:14px;line-height:2.1;margin-bottom:32px">
       考えること、判断すること、感情を動かすこと——これは全部エネルギーを使う。<br>
-      これは怠けではなく、<strong style="color:var(--text-2)">生き残るための設計</strong>だ。<br>
-      同じ負荷が続くと脳は省エネモードに入る。この省エネモードに入った瞬間、人は「つまらない」と感じる前に、静かに離脱する。
+      これは怠けではなく、<strong style="color:var(--text-2)">生き残るための設計</strong>です。<br>
+      同じ負荷が続くと脳は省エネモードに入ります。この省エネモードに入った瞬間、人は「つまらない」と感じる前に、静かに離脱します。
     </p>
 
     <!-- ── 逆説 ── -->
@@ -744,10 +811,10 @@ footer{
         「じゃあ、30秒以上の動画は誰も見れないじゃないか」
       </p>
       <p style="color:var(--text-2);font-size:14px;line-height:2;margin-bottom:16px">
-        そう思うよね。私もそう思った。
+        そう思われるかもしれません。私もそう思っていました。
       </p>
       <p style="color:var(--text-2);font-size:15px;line-height:2.1">
-        でも——<strong style="color:var(--text)">30秒以上見せる方法が、ある。</strong>
+        でも——<strong style="color:var(--text)">30秒以上見せる方法が、あります。</strong>
       </p>
     </div>
 
@@ -760,13 +827,13 @@ footer{
     </div>
 
     <p style="color:var(--text-2);font-size:14px;line-height:2.1;margin-bottom:36px">
-      脳は1つの塊ではない。その中に、それぞれ異なる役割を持った部位が集まって「脳」を形成している。<br>
-      同じ部位を30秒以上使い続けると疲れる。でも、30秒ごとに<strong style="color:var(--text-2)">違う部位を刺激していけば</strong>——脳にとって、常に新鮮な30秒が続いていることになる。
+      脳は1つの塊ではありません。その中に、それぞれ異なる役割を持った部位が集まって「脳」を形成しています。<br>
+      同じ部位を30秒以上使い続けると疲れます。でも、30秒ごとに<strong style="color:var(--text-2)">違う部位を刺激していけば</strong>——脳にとって、常に新鮮な30秒が続いていることになります。
     </p>
 
     <!-- ── 構成の正体 ── -->
     <p style="color:var(--text-2);font-size:15px;line-height:2.1;margin-bottom:12px">
-      これを考えたとき、私は「新しい発明だ」と思った。
+      これを考えたとき、私は「新しい発明だ」と感じました。
     </p>
     <p style="color:var(--text-2);font-size:14px;line-height:2.1;margin-bottom:8px">
       でもよく考えたら、世の中にすでに当たり前のように存在していた。
@@ -778,8 +845,8 @@ footer{
     </div>
 
     <p style="color:var(--text-2);font-size:14px;line-height:2.1;margin-bottom:36px">
-      構成とは「脳のどの部位に、どんな順番で、どんな情報を与えるか」を誰でも使えるようにテンプレート化したものだ。<br>
-      だから起承転結をただ表面的に真似しても、うまくいかない。<strong style="color:var(--text-2)">脳への刺激の順番</strong>を理解していなければ、形だけのコピーになってしまう。
+      構成とは「脳のどの部位に、どんな順番で、どんな情報を与えるか」を誰でも使えるようにテンプレート化したものです。<br>
+      だから起承転結をただ表面的に真似しても、うまくいきません。<strong style="color:var(--text-2)">脳への刺激の順番</strong>を理解していなければ、形だけのコピーになってしまう。
     </p>
 
     <!-- ── このマニュアルの目的 ── -->
@@ -789,7 +856,7 @@ footer{
         構成・エンタメ・面白さの本質を、脳科学の観点から説明する。
       </p>
       <p style="font-size:13px;color:var(--text-2);line-height:2;margin-top:8px">
-        表面的な「型」ではなく、「なぜその型が機能するのか」を理解することで、<br>どんな動画でも面白さを設計できるようになることが目的だ。
+        表面的な「型」ではなく、「なぜその型が機能するのか」を理解することで、<br>どんな動画でも面白さを設計できるようになることが目的です。
       </p>
     </div>
 
@@ -801,13 +868,13 @@ footer{
 
     <p style="color:var(--text-2);font-size:15px;line-height:2.1;margin-bottom:28px">
       これまで日本のYouTubeでは「外部流入はNG」とされてきた。<br>
-      理由は単純で、外部から来た視聴者は維持率が下がり、エンゲージメントが悪化するからだ。
+      理由は単純で、外部から来た視聴者は維持率が下がり、エンゲージメントが悪化するからです。
     </p>
 
     <p style="color:var(--text-2);font-size:14px;line-height:2.1;margin-bottom:28px">
-      しかし韓国・アメリカでは、外部流入を<strong style="color:var(--text-2)">積極的に活用</strong>しているチャンネルが多い。<br>
-      BreakingDown・ラストコールなどを手がける溝口氏のチームも、ショート動画をX・TikTok・Instagramに積極展開している。<br>
-      Netflixも同様の戦略を取っている。
+      しかし韓国・アメリカでは、外部流入を<strong style="color:var(--text-2)">積極的に活用</strong>しているチャンネルが多いです。<br>
+      BreakingDown・ラストコールなどを手がける溝口氏のチームも、ショート動画をX・TikTok・Instagramに積極展開しています。<br>
+      Netflixも同様の戦略を取っています。
     </p>
 
     <!-- なぜ可能なのか -->
@@ -817,25 +884,25 @@ footer{
         「誰が見ても面白い」レベルまでコンテンツを仕上げているから。
       </p>
       <p style="font-size:13px;color:var(--text-2);line-height:2">
-        外部から来た視聴者がそのまま引き込まれる。だから維持率が落ちない。<br>
-        コンテンツのクオリティがそのまま「外部流入への耐性」になる。
+        外部から来た視聴者がそのまま引き込まれます。だから維持率が落ちません。<br>
+        コンテンツのクオリティがそのまま「外部流入への耐性」になります。
       </p>
     </div>
 
     <p style="color:var(--text-2);font-size:14px;line-height:2.1;margin-bottom:28px">
       今後、各チャンネルがさらにメディア化されていくとき——テレビ出演・クライアント案件・他SNSからの流入——外部からの視聴者は必ず発生する。<br>
-      そのとき<strong style="color:var(--text-2)">ファンも外部視聴者も、両方が面白いと思える動画</strong>でなければ意味がない。
+      そのとき<strong style="color:var(--text-2)">ファンも外部視聴者も、両方が面白いと思える動画</strong>でなければ意味がありません。
     </p>
 
     <!-- 結論 -->
     <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);border-left:2px solid var(--accent);padding:20px 24px">
       <p style="font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:.2em;color:var(--accent);margin-bottom:10px">このマニュアルを作っている理由</p>
       <p style="font-size:15px;color:var(--text);line-height:2;font-weight:700">
-        外部流入時代で戦えるのは、圧倒的なコンテンツクオリティを持つチャンネルだけだ。
+        外部流入時代で戦えるのは、圧倒的なコンテンツクオリティを持つチャンネルだけです。
       </p>
       <p style="font-size:13px;color:var(--text-2);line-height:2;margin-top:10px">
         溝口チームのような戦略を将来とるためには、まず「誰が見ても面白い」動画を作れる状態が前提条件になる。<br>
-        そのための動画クオリティを上げることが、このマニュアルの目的でもある。
+        そのための動画クオリティを上げることが、このマニュアルの目的でもあります。
       </p>
     </div>
   </div>
@@ -853,12 +920,12 @@ footer{
 
       <!-- 大前提 -->
       <p style="font-size:17px;color:var(--text);line-height:2;margin-bottom:24px;font-weight:700">
-        人間は、動画の「面白さ」を自分では判断できない。
+        人間は、動画の「面白さ」を自分では判断できありません。
       </p>
 
       <p style="font-size:15px;color:var(--text-2);line-height:2.1;margin-bottom:24px">
-        人体を支配しているのは<strong style="color:var(--text)">脳と脊髄</strong>だ。そこから張り巡らされた神経が、全身の動き・感情・判断のすべてをコントロールしている。<br>
-        つまり「面白い」「もっと見たい」という感覚も、<strong style="color:var(--text)">脳の各部位が反応した結果</strong>として生まれている。本人が意識して選んでいるわけではない。
+        人体を支配しているのは<strong style="color:var(--text)">脳と脊髄</strong>です。そこから張り巡らされた神経が、全身の動き・感情・判断のすべてをコントロールしている。<br>
+        つまり「面白い」「もっと見たい」という感覚も、<strong style="color:var(--text)">脳の各部位が反応した結果</strong>として生まれている。本人が意識して選んでいるわけではありません。
       </p>
 
       <!-- 抽象思考への警告 -->
@@ -866,7 +933,7 @@ footer{
         <p style="font-size:13px;color:var(--danger);font-weight:700;margin-bottom:8px;letter-spacing:.04em">⚠ 抽象思考で作ると、こうなる</p>
         <p style="font-size:13.5px;color:var(--text-2);line-height:2">
           「面白いとは何か」という感覚ベースで動画を作ると、<strong style="color:var(--text)">個人の感性・流行・大衆の変数</strong>に依存してしまう。<br>
-          これは毎回ゼロから「面白さ」を発明しようとするのと同じで、再現性がない。
+          これは毎回ゼロから「面白さ」を発明しようとするのと同じで、再現性がありません。
         </p>
       </div>
 
@@ -894,8 +961,8 @@ footer{
       </div>
 
       <p style="font-size:13.5px;color:var(--text-2);line-height:2">
-        起承転結・三幕構成・シンデレラ構造・キャンベルの法則——これらはすべて「脳の部位に刺激を与える順番」を体系化したものだ。<br>
-        だから次のPART 1は、このマニュアルで最も重要な項目になる。
+        起承転結・三幕構成・シンデレラ構造・キャンベルの法則——これらはすべて「脳の部位に刺激を与える順番」を体系化したものです。<br>
+        だから次のPART 1は、このマニュアルで最も重要な項目になります。
       </p>
     </div>
 
@@ -982,7 +1049,7 @@ footer{
         <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin:0">この順番で刺激すること＝「面白い動画を作ること」。<br>5段階すべてに届いた動画だけが、記憶に残り、人を動かす。</p>
       </div>
     </div>
-    <p style="font-size:12px;color:var(--text-2);margin-bottom:48px">※ 脳はエネルギー消費が軽い部位から重い部位の順で処理する。この流れに逆らうと視聴者は離脱する。</p>
+    <p style="font-size:12px;color:var(--text-2);margin-bottom:48px">※ 脳はエネルギー消費が軽い部位から重い部位の順で処理します。この流れに逆らうと視聴者は離脱する。</p>
 
     <!-- 5枚のブレインカード -->
     <div class="brain-grid" style="grid-template-columns:1fr 1fr;gap:16px">
@@ -1023,21 +1090,21 @@ footer{
       <div class="brain-card" style="background:rgba(100,100,200,.07);border-color:rgba(100,100,200,.3)">
         <div class="brain-card-title" style="color:var(--cyan);font-size:15px">③ ミラーニューロン — 当事者になる</div>
         <p><strong>役割：</strong>他者の行動・感情を「自分のこと」として体験させる。「この人の気持ちが分かる」「自分と似ている」と感じた瞬間に刺激される。<br><br>
-        ここが刺激されると視聴者は<strong>「見ている人 → 物語の当事者」</strong>に変わる。<br><br>
+        ここが刺激されると視聴者は<strong>「見ている人 → 物語の当事者」</strong>に変わります。<br><br>
         <strong>刺激する素材：</strong>失敗・挫折を語る言葉 / 苦労している映像 / 過去の写真・昔の映像</p>
       </div>
 
       <div class="brain-card prefrontal">
         <div class="brain-card-title" style="font-size:15px">④ 前頭前野 — 論理・理解</div>
-        <p><strong>役割：</strong>「なるほど」という論理的な理解を担当する。感情が動いた後にやっとここが働く。<br><br>
+        <p><strong>役割：</strong>「なるほど」という論理的な理解を担当します。感情が動いた後にやっとここが働きます。<br><br>
         最初に「説明」から始めると、ここしか刺激できず感情が動かないまま終わる。<strong>必ず感情の後に届ける。</strong><br><br>
         <strong>刺激する素材：</strong>整理された情報 / 構造的な説明 / データ / まとめ</p>
       </div>
 
       <div class="brain-card" style="background:rgba(42,122,75,.07);border-color:rgba(42,122,75,.3);grid-column:1/-1">
         <div class="brain-card-title" style="color:var(--ok);font-size:15px">⑤ 海馬 — 記憶への定着</div>
-        <p><strong>役割：</strong>情報を長期記憶として保存する。ここまで刺激が届いた動画だけが「記憶に残る動画」になる。<br><br>
-        ショート動画が記憶に残らないのは、①②だけを刺激してここに届かないからだ。長尺ドキュメンタリーが「人生を変える」と言われるのは、5段階すべてを刺激するからだ。<br><br>
+        <p><strong>役割：</strong>情報を長期記憶として保存します。ここまで刺激が届いた動画だけが「記憶に残る動画」になる。<br><br>
+        ショート動画が記憶に残らないのは、①②だけを刺激してここに届かないからです。長尺ドキュメンタリーが「人生を変える」と言われるのは、5段階すべてを刺激するからです。<br><br>
         <strong>刺激する素材：</strong>感情を伴った体験の積み重ね / 物語の結末 / 本質的なメッセージ</p>
       </div>
 
@@ -1057,10 +1124,10 @@ footer{
       <div style="background:rgba(200,32,16,.06);border:1px solid rgba(200,32,16,.25);border-left:2px solid var(--danger);padding:20px 24px;margin-bottom:24px">
         <p style="font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:.2em;color:var(--danger);margin-bottom:10px">⚠ 最も多い誤解</p>
         <p style="font-size:15px;color:var(--text);font-weight:700;line-height:1.8;margin-bottom:10px">
-          「喧嘩・炎上・衝撃映像」を冒頭に入れても、長期的なファンにはならない。
+          「喧嘩・炎上・衝撃映像」を冒頭に入れても、長期的なファンにはならありません。
         </p>
         <p style="font-size:13.5px;color:var(--text-2);line-height:2">
-          確かにバズる。再生数も取れる。でもそれはドーパミン刺激であって、扁桃体刺激ではない。<br>
+          確かにバズる。再生数も取れます。でもそれはドーパミン刺激であって、扁桃体刺激ではない。<br>
           ドーパミン目的で集まった視聴者は<strong style="color:var(--text)">次の刺激を求め続けるだけ</strong>で、チャンネルのファンにはならない。<br>
           むしろブランディングを傷つけ、マイナスに働く可能性の方が高い。
         </p>
@@ -1068,8 +1135,8 @@ footer{
 
       <!-- 本質の説明 -->
       <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
-        扁桃体刺激の本質は<strong style="color:var(--text)">「この動画は自分ごとだ」と思わせること</strong>だ。<br>
-        視聴者の脳に「これを見ないと、自分は損をする」「この人の話は自分に関係ある」と判断させること——これがフックの唯一の目的だ。
+        扁桃体刺激の本質は<strong style="color:var(--text)">「この動画は自分ごとだ」と思わせること</strong>です。<br>
+        視聴者の脳に「これを見ないと、自分は損をする」「この人の話は自分に関係ある」と判断させること——これがフックの唯一の目的です。
       </p>
 
       <!-- 比較カード -->
@@ -1077,12 +1144,12 @@ footer{
         <div class="insert-card verb" style="border-color:rgba(232,52,28,.4);border-left-color:var(--ok)">
           <div class="insert-card-label" style="color:var(--ok)">✅ 扁桃体刺激（ファンになる）</div>
           <p style="margin-bottom:10px">「10年間ずっと後悔してきた」「あのとき諦めなければよかった」</p>
-          <p style="font-size:12px;color:var(--text-2);line-height:1.8">感情が直接動く。見た人は「なぜ？」「この人に何があったの？」と感じ、物語の中に入っていく。<strong>長尺への移行にも有効。</strong>ショートで扁桃体を刺激した視聴者は、続きを知りたくて長尺を見る。</p>
+          <p style="font-size:12px;color:var(--text-2);line-height:1.8">感情が直接動きます。見た人は「なぜ？」「この人に何があったの？」と感じ、物語の中に入っていく。<strong>長尺への移行にも有効。</strong>ショートで扁桃体を刺激した視聴者は、続きを知りたくて長尺を見ます。</p>
         </div>
         <div class="insert-card noun" style="border-left-color:var(--danger)">
           <div class="insert-card-label" style="color:var(--danger)">❌ ドーパミン刺激（消費されて終わる）</div>
           <p style="margin-bottom:10px">「衝撃映像！」「○秒後に驚くことが…」「信じられない結末！」</p>
-          <p style="font-size:12px;color:var(--text-2);line-height:1.8">好奇心は煽れるが感情は動いていない。再生数は取れても、チャンネル登録・マネタイズ・ファン化には繋がらない。むしろ<strong>ディスブランディングのリスク</strong>がある。</p>
+          <p style="font-size:12px;color:var(--text-2);line-height:1.8">好奇心は煽れるが感情は動いていありません。再生数は取れても、チャンネル登録・マネタイズ・ファン化には繋がらありません。むしろ<strong>ディスブランディングのリスク</strong>がある。</p>
         </div>
       </div>
 
@@ -1091,7 +1158,7 @@ footer{
         <p style="font-family:'Bebas Neue',cursive;font-size:10.5px;letter-spacing:.2em;color:var(--accent);margin-bottom:8px">MEMO — ショートから長尺へ移行させる場合も同じ考え方</p>
         <p style="font-size:13px;color:var(--text-2);line-height:2">
           ショート動画で扁桃体を刺激できていれば、視聴者は「この人のことをもっと知りたい」という動機で長尺に流入してくる。<br>
-          ドーパミン刺激のショートで集めた視聴者は、長尺を見ない。「次の短い刺激」を求めるだけだからだ。
+          ドーパミン刺激のショートで集めた視聴者は、長尺を見ありません。「次の短い刺激」を求めるだけだからです。
         </p>
       </div>
     </div>
@@ -1102,7 +1169,7 @@ footer{
       <p style="font-size:13px;color:var(--text-2);margin-bottom:16px">ドーパミンを正しく使う</p>
 
       <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:16px">
-        大脳辺縁系はドーパミン（期待・報酬）を生み出す部位だ。ドーパミンは「予測と期待」によって発生する——「この先どうなるか」を予測した瞬間に興味が生まれ、その結果が確認できるとき人は動画を見続ける。
+        大脳辺縁系はドーパミン（期待・報酬）を生み出す部位です。ドーパミンは「予測と期待」によって発生する——「この先どうなるか」を予測した瞬間に興味が生まれ、その結果が確認できるとき人は動画を見続けます。
       </p>
 
       <div style="background:rgba(200,169,110,.06);border:1px solid rgba(200,169,110,.2);border-radius:8px;padding:20px 24px;margin-bottom:20px">
@@ -1117,19 +1184,19 @@ footer{
       </div>
 
       <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:16px">
-        この構造を維持するために必要なのが<strong>ブリッジ（文脈のつなぎ）</strong>だ。シーンが変わるとき、視聴者が「なぜ場面が変わったのか」を考えなければいけない状態になると、前頭前野を使わせてしまう。前頭前野を使わせると動画は疲れる。
+        この構造を維持するために必要なのが<strong>ブリッジ（文脈のつなぎ）</strong>です。シーンが変わるとき、視聴者が「なぜ場面が変わったのか」を考えなければいけない状態になると、前頭前野を使わせてしまう。前頭前野を使わせると動画は疲れます。
       </p>
 
       <div class="insert-grid" style="margin-bottom:16px">
         <div class="insert-card verb" style="border-color:rgba(200,169,110,.4)">
           <div class="insert-card-label" style="color:var(--warn)">ブリッジありの例</div>
           <p>手帳の話 →「実際に見せてもらえますか？」→ オフィスへ移動 → 実物の手帳を見せる</p>
-          <div class="insert-example">「じゃあ実際に見せてもらえますか？」の一言があるだけで、視聴者はオフィスに移動することを自然に理解できる。考えなくていい。</div>
+          <div class="insert-example">「じゃあ実際に見せてもらえますか？」の一言があるだけで、視聴者はオフィスに移動することを自然に理解できます。考えなくていいです。</div>
         </div>
         <div class="insert-card noun">
           <div class="insert-card-label">ブリッジなしの例</div>
           <p>手帳の話 → 突然オフィスの映像 →「？？？」</p>
-          <div class="insert-example">視聴者は「なぜ？」と考える。前頭前野を使う。テンポが壊れ、離脱が起きる。</div>
+          <div class="insert-example">視聴者は「なぜ？」と考えます。前頭前野を使う。テンポが壊れ、離脱が起きます。</div>
         </div>
       </div>
 
@@ -1144,14 +1211,14 @@ footer{
       <p style="font-size:13px;color:var(--text-2);margin-bottom:16px">視聴者を「物語の当事者」にする</p>
 
       <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:16px">
-        扁桃体で「自分に関係ある」、大脳辺縁系で「続きが気になる」状態になった視聴者に、次に届けるのは<strong>共感</strong>だ。共感が生まれた後にはじめて前頭前野が働き、「この人の話をもっと聞きたい」という状態になる。<strong>共感 → 思考の順番が重要。</strong>
+        扁桃体で「自分に関係ある」、大脳辺縁系で「続きが気になる」状態になった視聴者に、次に届けるのは<strong>共感</strong>です。共感が生まれた後にはじめて前頭前野が働き、「この人の話をもっと聞きたい」という状態になる。<strong>共感 → 思考の順番が重要。</strong>
       </p>
 
       <div class="insert-grid" style="margin-bottom:16px">
         <div class="insert-card verb" style="border-color:rgba(100,100,200,.4)">
           <div class="insert-card-label" style="color:var(--cyan)">① 言語による共感（聴覚）</div>
           <h4>言葉で共感を生む</h4>
-          <p>失敗・苦労・挫折・弱さを語る言葉が、視聴者の過去の経験と結びついたとき共感が生まれる。</p>
+          <p>失敗・苦労・挫折・弱さを語る言葉が、視聴者の過去の経験と結びついたとき共感が生まれます。</p>
           <div class="insert-example">例：「昔は全然うまくいかなくて…」「正直あの時は本当に辛かった」<br><br>重要：抽象的な話ではなく具体的な実体験であること。人は抽象に共感しない。</div>
         </div>
         <div class="insert-card noun" style="border-color:rgba(100,100,200,.4)">
@@ -1173,11 +1240,11 @@ footer{
     <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:32px">PART 3 — 30秒理論</h3>
 
     <div class="highlight highlight-warn" style="margin-bottom:24px">
-      <p style="font-size:15px;line-height:1.9"><strong style="color:var(--warn)">30秒理論は「最初の30秒」の話ではない。</strong>動画全体が「30秒の塊」の連続で構成されているという構造の話だ。</p>
+      <p style="font-size:15px;line-height:1.9"><strong style="color:var(--warn)">30秒理論は「最初の30秒」の話ではない。</strong>動画全体が「30秒の塊」の連続で構成されているという構造の話です。</p>
     </div>
 
     <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
-      脳は体の中で最もエネルギーを消費する器官だ。同じ脳の部位を30秒以上使い続けると省エネモードに入る——つまり集中力が切れて離脱が起きる。だから編集は「30秒ごとに新しい刺激（＝新しい脳の部位への切り替え）を届ける」意識で作る。
+      脳は体の中で最もエネルギーを消費する器官です。同じ脳の部位を30秒以上使い続けると省エネモードに入る——つまり集中力が切れて離脱が起きます。だから編集は「30秒ごとに新しい刺激（＝新しい脳の部位への切り替え）を届ける」意識で作る。
     </p>
 
     <div style="background:var(--bg-4);border:1px solid var(--border-2);border-radius:8px;padding:24px 28px;margin-bottom:16px">
@@ -1191,7 +1258,7 @@ footer{
         <div class="flow-arrow">→</div>
         <div class="flow-step" style="background:rgba(0,0,0,.06);border:1px solid #ccc;color:var(--text-2)">繰り返す<br><span style="font-size:10px;opacity:.8">最後まで</span></div>
       </div>
-      <p style="color:var(--text-2);font-size:13px;margin-top:16px;line-height:1.8">この構造が途切れた瞬間に離脱が起きる。編集とはこの連鎖を動画全体に設計することだ。</p>
+      <p style="color:var(--text-2);font-size:13px;margin-top:16px;line-height:1.8">この構造が途切れた瞬間に離脱が起きます。編集とはこの連鎖を動画全体に設計することです。</p>
     </div>
 
     <hr class="sec-divider">
@@ -1201,7 +1268,7 @@ footer{
 
     <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
       動画には「話の軸（伝えたい内容）」がある。しかしそのまま説明すると前頭前野ばかりを使うため、人は飽きる。
-      「エンタメ化」とは、前頭前野の情報を大脳辺縁系で楽しめる形に変換することだ。
+      「エンタメ化」とは、前頭前野の情報を大脳辺縁系で楽しめる形に変換することです。
     </p>
 
     <div style="background:var(--bg-4);border:1px solid var(--border-2);padding:24px 28px;margin-bottom:28px">
@@ -1250,8 +1317,8 @@ footer{
           <span class="acc-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="acc-body">
-          ショート動画は主に「大脳辺縁系」だけを刺激する構造。刺激は強いが海馬まで届かないため記憶に残らない。「去年見たショート動画で一番記憶に残っているものは？」と聞かれてほとんどの人が答えられないのはこのためだ。<br><br>
-          長尺動画は前頭前野・海馬まで刺激を届けられる。だから「考えさせて記憶に残す」ことが得意なジャンルだ。ドキュメンタリーが「人生を変える」と言われる理由はここにある。
+          ショート動画は主に「大脳辺縁系」だけを刺激する構造。刺激は強いが海馬まで届かないため記憶に残らありません。「去年見たショート動画で一番記憶に残っているものは？」と聞かれてほとんどの人が答えられないのはこのためです。<br><br>
+          長尺動画は前頭前野・海馬まで刺激を届けられます。だから「考えさせて記憶に残す」ことが得意なジャンルです。ドキュメンタリーが「人生を変える」と言われる理由はここにある。
         </div>
       </div>
       <div class="acc-item">
@@ -1259,7 +1326,7 @@ footer{
           <span class="acc-q">30秒の塊に「引き」を作る方法</span>
           <span class="acc-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="acc-body">各30秒の終わりに「問いを未解決のまま次へ渡す」ことが基本。「この人は諦めなかった——でも、なぜ？」「そしてその決断が、後に大きな結果をもたらすことになる」など、答えを引き延ばすことで視聴者を引き続ける。</div>
+        <div class="acc-body">各30秒の終わりに「問いを未解決のまま次へ渡す」ことが基本。「この人は諦めなかった——でも、なぜ？」「そしてその決断が、後に大きな結果をもたらすことになる」など、答えを引き延ばすことで視聴者を引き続けます。</div>
       </div>
     </div>
 
@@ -1271,10 +1338,10 @@ footer{
   <div class="container">
     <span class="ch-label">CHAPTER 05</span>
     <h2 class="ch-title">ワークフロー</h2>
-    <p class="ch-sub">Flip The Bird の編集の手順（この順番で必ずやる）</p>
+    <p class="ch-sub">編集の手順（この順番で必ずやる）</p>
 
     <p style="font-size:13.5px;color:var(--text-2);line-height:2;margin-bottom:40px">
-      各ステップは独立しているようで連動している。「アバン」「インサート」「BGM」は独立した技術ではなく、このワークフローの中にある<strong style="color:var(--text-2)">特定のステップで使うツール</strong>だ。
+      各ステップは独立しているようで連動している。「アバン」「インサート」「BGM」は独立した技術ではなく、このワークフローの中にある<strong style="color:var(--text-2)">特定のステップで使うツール</strong>です。
     </p>
 
     <div class="wf-steps">
@@ -1293,7 +1360,7 @@ footer{
         <div class="wf-num">02</div>
         <div class="wf-content">
           <div class="wf-title">1語ゴールの設定</div>
-          <div class="wf-body">「この動画を見終わったとき、見ている人に何を感じてほしいか」を1つの言葉で決める。迷ったときはこれに戻る。</div>
+          <div class="wf-body">「この動画を見終わったとき、見ている人に何を感じてほしいか」を1つの言葉で決めます。迷ったときはこれに戻る。</div>
         </div>
       </div>
 
@@ -1302,7 +1369,7 @@ footer{
         <div class="wf-num">03</div>
         <div class="wf-content">
           <div class="wf-title">構成プロット作成 + アバン設計</div>
-          <div class="wf-body">発言を並べて物語の骨格を作る。「成長の物語（キャンベル型）」か「逆転の物語（シンデレラ型）」かを選ぶ。骨格が決まったら、アバン（冒頭のつかみ）を設計する。</div>
+          <div class="wf-body">発言を並べて物語の骨格を作る。「成長の物語（キャンベル型）」か「逆転の物語（シンデレラ型）」かを選ぶ。骨格が決まったら、アバン（冒頭のつかみ）を設計します。</div>
 
           <!-- アバン詳細 -->
           <div class="wf-detail">
@@ -1331,11 +1398,11 @@ footer{
       </div>
       <div class="card">
         <div class="card-title">答えを見せるな</div>
-        <div class="card-body">アバンでは絶対に結末を見せない。感情が一番高まる場面を少し見せながら、「なぜこうなったの？」という疑問を作る。</div>
+        <div class="card-body">アバンでは絶対に結末を見せありません。感情が一番高まる場面を少し見せながら、「なぜこうなったの？」という疑問を作る。</div>
       </div>
       <div class="card">
         <div class="card-title">長さの目安</div>
-        <div class="card-body">30秒〜90秒が目安。長すぎると見ている人が疲れてしまう。短すぎると疑問が生まれない。60秒くらいがちょうどいい場合が多い。</div>
+        <div class="card-body">30秒〜90秒が目安。長すぎると見ている人が疲れてしまう。短すぎると疑問が生まれありません。60秒くらいがちょうどいい場合が多いです。</div>
       </div>
     </div>
 
@@ -1355,7 +1422,7 @@ footer{
         <div class="wf-num">04</div>
         <div class="wf-content">
           <div class="wf-title">BGMセレクト</div>
-          <div class="wf-body">感情の流れを先に決める。BGMを先に入れてから、それに合わせてインサートを選ぶ。</div>
+          <div class="wf-body">感情の流れを先に決めます。BGMを先に入れてから、それに合わせてインサートを選ぶ。</div>
 
           <!-- BGM詳細 -->
           <div class="wf-detail">
@@ -1370,7 +1437,7 @@ footer{
       <div class="card">
         <div class="card-icon">🎵</div>
         <div class="card-title">音は感情の下地</div>
-        <div class="card-body">BGMは映像より先に「次はこんな気持ちになるよ」と伝える。人は映像を見るより0.2秒早く、音で次の感情を準備している。</div>
+        <div class="card-body">BGMは映像より先に「次はこんな気持ちになるよ」と伝えます。人は映像を見るより0.2秒早く、音で次の感情を準備している。</div>
       </div>
       <div class="card">
         <div class="card-icon">📉</div>
@@ -1390,21 +1457,21 @@ footer{
           <span class="acc-q">BGMの入れ方・切り方</span>
           <span class="acc-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="acc-body">BGMは映像のカットが変わるタイミングで入れない。映像の「雰囲気・感情」が変わるタイミングで入れる。切るときは台詞が終わった直後か、音楽のフレーズの区切りで切る。フェードアウトはどうしようもないときだけ。</div>
+        <div class="acc-body">BGMは映像のカットが変わるタイミングで入れありません。映像の「雰囲気・感情」が変わるタイミングで入れます。切るときは台詞が終わった直後か、音楽のフレーズの区切りで切る。フェードアウトはどうしようもないときだけ。</div>
       </div>
       <div class="acc-item">
         <button type="button" class="acc-trigger" onclick="toggleAcc(this)">
           <span class="acc-q">環境音の使い方</span>
           <span class="acc-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="acc-body">環境音（その場所の空気音）は「本当にそこにいる感じ」を作る。インタビュー中も小さく環境音を流すことで、「この場所にいる感」が出る。撮影のとき、必ず環境音だけを録音した素材を用意すること。</div>
+        <div class="acc-body">環境音（その場所の空気音）は「本当にそこにいる感じ」を作る。インタビュー中も小さく環境音を流すことで、「この場所にいる感」が出ます。撮影のとき、必ず環境音だけを録音した素材を用意すること。</div>
       </div>
       <div class="acc-item">
         <button type="button" class="acc-trigger" onclick="toggleAcc(this)">
           <span class="acc-q">BGM → インサート → チャプターの順番</span>
           <span class="acc-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="acc-body">編集の順番は「BGMを先に決める → BGMに合わせてインサートを選ぶ → チャプター（場面の区切り）を決める」。音楽のリズムと感情の流れを先に決めると、インサートの選び方が自然と決まる。</div>
+        <div class="acc-body">編集の順番は「BGMを先に決める → BGMに合わせてインサートを選ぶ → チャプター（場面の区切り）を決める」。音楽のリズムと感情の流れを先に決めると、インサートの選び方が自然と決まります。</div>
       </div>
     </div>
           </div><!-- /wf-detail-body -->
@@ -1417,7 +1484,7 @@ footer{
         <div class="wf-num">05</div>
         <div class="wf-content">
           <div class="wf-title">ラフカット → ファインカット + インサート</div>
-          <div class="wf-body">まず「言いたいことが全部入っているか」だけを確認するラフカット（大雑把な編集）を作る。次にリズムと感情を整えるファインカット（細かい仕上げ）をする。インサートはファインカット時に映像の「体験」として差し込む。</div>
+          <div class="wf-body">まず「言いたいことが全部入っているか」だけを確認するラフカット（大雑把な編集）を作る。次にリズムと感情を整えるファインカット（細かい仕上げ）をします。インサートはファインカット時に映像の「体験」として差し込む。</div>
 
           <!-- インサート詳細 -->
           <div class="wf-detail">
@@ -1431,8 +1498,8 @@ footer{
     
     <!-- 冒頭：誤解を正す -->
     <div class="highlight highlight-warn" style="margin-bottom:40px">
-      <p style="font-size:15px;line-height:2">インサートは「説明を分かりやすくする補足映像」だと思われている。それは<strong style="color:var(--warn)">最も浅い使い方</strong>だ。<br>
-      本来インサートは、<strong style="color:var(--warn)">視聴者に体験させるための装置</strong>だ。</p>
+      <p style="font-size:15px;line-height:2">インサートは「説明を分かりやすくする補足映像」だと思われている。それは<strong style="color:var(--warn)">最も浅い使い方</strong>です。<br>
+      本来インサートは、<strong style="color:var(--warn)">視聴者に体験させるための装置</strong>です。</p>
     </div>
 
     <!-- 三層構造の概観 -->
@@ -1445,14 +1512,14 @@ footer{
         <div class="flow-arrow">→</div>
         <div class="flow-step" style="padding:14px 20px;background:rgba(0,80,200,.15);border-color:rgba(0,80,200,.4);color:var(--accent)">③ 体験を作る<br>インサート<br><span style="font-size:11px;opacity:.7">← ここを学ぶ</span></div>
       </div>
-      <p style="font-size:13px;color:var(--text-2);margin-top:16px;line-height:1.8">この三層構造が揃うと、視聴者は「動画を見ている」のではなく「物語を体験している」状態になる。その結果、視聴維持率は自然と高くなる。</p>
+      <p style="font-size:13px;color:var(--text-2);margin-top:16px;line-height:1.8">この三層構造が揃うと、視聴者は「動画を見ている」のではなく「物語を体験している」状態になります。その結果、視聴維持率は自然と高くなる。</p>
     </div>
 
     <!-- ======= PART 1: 物語を作る ======= -->
     <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:24px">PART 1 — インサートで「物語」を作る</h3>
 
     <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
-      インサートの究極形は<strong>再現ドラマ</strong>だ。「世界仰天ニュース」などの番組が使う再現VTRは、説明ではなく追体験を作る。視聴者は「情報を受け取っている」のではなく「その場にいる感覚」で見ている。毎回キャスト・ロケを用意するのは現実的でないが、その原理はカットの組み合わせで再現できる。
+      インサートの究極形は<strong>再現ドラマ</strong>です。「世界仰天ニュース」などの番組が使う再現VTRは、説明ではなく追体験を作る。視聴者は「情報を受け取っている」のではなく「その場にいる感覚」で見ている。毎回キャスト・ロケを用意するのは現実的でないが、その原理はカットの組み合わせで再現できます。
     </p>
 
     <!-- お茶の例：1カット vs 3〜4カット -->
@@ -1468,19 +1535,19 @@ footer{
         <div class="insert-card-label">✅ 3〜4カット（体験になる）</div>
         <h4>「私はお茶を飲みました」</h4>
         <p>→ 急須を置く → お湯を注ぐ → 湯気が立つ → 口に運ぶ</p>
-        <div class="insert-example">視聴者の頭の中：その場面を「体験」する。ミラーニューロンが刺激される。</div>
+        <div class="insert-example">視聴者の頭の中：その場面を「体験」します。ミラーニューロンが刺激される。</div>
       </div>
     </div>
 
     <div class="highlight" style="margin-bottom:48px">
-      <p><strong>インサートは「情報を見せるもの」ではなく「行動を追体験させる装置」だ。</strong>脳は物語の形で情報を受け取ると、疲れず・自然な順序で理解でき・感情と一緒に記憶される。だから複数カットで「行動の流れ」を作ることが基本になる。</p>
+      <p><strong>インサートは「情報を見せるもの」ではなく「行動を追体験させる装置」です。</strong>脳は物語の形で情報を受け取ると、疲れず・自然な順序で理解でき・感情と一緒に記憶されます。だから複数カットで「行動の流れ」を作ることが基本になる。</p>
     </div>
 
     <!-- ======= PART 2: 世界観を操作する ======= -->
     <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:24px">PART 2 — インサートで「世界観」を操作する</h3>
 
     <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
-      インサートには、世界観そのものを変える力がある。「お茶を飲む」という同じ行動でも、どのインサートを選ぶかで視聴者が頭の中で描く物語が完全に変わる。
+      インサートには、世界観そのものを変える力がある。「お茶を飲む」という同じ行動でも、どのインサートを選ぶかで視聴者が頭の中で描く物語が完全に変わります。
     </p>
 
     <!-- 世界観の例 -->
@@ -1503,7 +1570,7 @@ footer{
     </div>
 
     <div class="highlight highlight-warn" style="margin-bottom:24px">
-      <p><strong style="color:var(--warn)">インサートは「情報の補足」ではなく「物語の方向性を決める装置」だ。</strong>どのインサートを選ぶかは、視聴者に「どんな世界観を体験させたいか」を決めることと同じだ。</p>
+      <p><strong style="color:var(--warn)">インサートは「情報の補足」ではなく「物語の方向性を決める装置」です。</strong>どのインサートを選ぶかは、視聴者に「どんな世界観を体験させたいか」を決めることと同じです。</p>
     </div>
 
     <!-- 2種類のインサート -->
@@ -1512,7 +1579,7 @@ footer{
       <div class="insert-card verb">
         <div class="insert-card-label">TYPE A — モノ・風景インサート</div>
         <h4>世界の「場所」を決める</h4>
-        <p>視聴者が「この動画はどんな世界の話か」を理解する。舞台設定・文脈を作る役割。</p>
+        <p>視聴者が「この動画はどんな世界の話か」を理解します。舞台設定・文脈を作る役割。</p>
         <div class="insert-example">例：工場の外観 / 街の風景 / 自室のデスク / 夜の交差点</div>
       </div>
       <div class="insert-card noun">
@@ -1527,7 +1594,7 @@ footer{
     <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:24px">PART 3 — 情報インサート vs 感情インサート</h3>
 
     <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
-      プロの編集者が「どこにどのインサートを入れるか」を判断するとき、最初に考えるのはこの分類だ。インサートには目的が2種類あり、場面によって使い分ける。
+      プロの編集者が「どこにどのインサートを入れるか」を判断するとき、最初に考えるのはこの分類です。インサートには目的が2種類あり、場面によって使い分ける。
     </p>
 
     <div class="insert-grid" style="margin-bottom:32px">
@@ -1561,15 +1628,15 @@ footer{
         </div>
         <div style="border-top:1px solid #eee;padding-top:12px;display:flex;gap:12px;align-items:flex-start">
           <div style="font-family:'Bebas Neue',cursive;color:var(--danger);font-size:13px;min-width:100px;padding-top:2px">感情的発言の直後</div>
-          <div style="font-size:14px;color:var(--text-2);line-height:1.8">感情インサートを優先する。発言の直後に表情や沈黙を入れると、その感情が視聴者に乗り移る。情報インサートを挟むと感情が冷める。</div>
+          <div style="font-size:14px;color:var(--text-2);line-height:1.8">感情インサートを優先します。発言の直後に表情や沈黙を入れると、その感情が視聴者に乗り移る。情報インサートを挟むと感情が冷める。</div>
         </div>
         <div style="border-top:1px solid #eee;padding-top:12px;display:flex;gap:12px;align-items:flex-start">
           <div style="font-family:'Bebas Neue',cursive;color:var(--text-2);font-size:13px;min-width:100px;padding-top:2px">テンポが速い場面</div>
-          <div style="font-size:14px;color:var(--text-2);line-height:1.8">情報インサートを短く刻む。1カット1〜2秒で切り替えることで、脳が考える前に次へ進む感覚を作れる。</div>
+          <div style="font-size:14px;color:var(--text-2);line-height:1.8">情報インサートを短く刻む。1カット1〜2秒で切り替えることで、脳が考える前に次へ進む感覚を作れます。</div>
         </div>
         <div style="border-top:1px solid #eee;padding-top:12px;display:flex;gap:12px;align-items:flex-start">
           <div style="font-family:'Bebas Neue',cursive;color:var(--text-2);font-size:13px;min-width:100px;padding-top:2px">感情を深める場面</div>
-          <div style="font-size:14px;color:var(--text-2);line-height:1.8">感情インサートを長めに置く。表情・沈黙・仕草に2〜4秒かけると、視聴者がその感情の中に留まる時間ができる。</div>
+          <div style="font-size:14px;color:var(--text-2);line-height:1.8">感情インサートを長めに置く。表情・沈黙・仕草に2〜4秒かけると、視聴者がその感情の中に留まる時間ができます。</div>
         </div>
       </div>
     </div>
@@ -1589,7 +1656,7 @@ footer{
           <span class="acc-q">インサート素材がないときの対処法</span>
           <span class="acc-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="acc-body">インタビュー映像の手・目・口のアップを感情インサートとして使う / テロップで内容を情報インサート代わりにする / 過去の写真・昔の映像（クレジット必須）/ アニメーションや図で情報を補足する。<br><br>素材がなくても「表情インサート」だけは必ず取れる。インタビュー収録時に「カメラを回したまま沈黙の時間を作る」ことを習慣にすると、感情インサートの素材が自然に増える。</div>
+        <div class="acc-body">インタビュー映像の手・目・口のアップを感情インサートとして使う / テロップで内容を情報インサート代わりにする / 過去の写真・昔の映像（クレジット必須）/ アニメーションや図で情報を補足する。<br><br>素材がなくても「表情インサート」だけは必ず取れます。インタビュー収録時に「カメラを回したまま沈黙の時間を作る」ことを習慣にすると、感情インサートの素材が自然に増えます。</div>
       </div>
       <div class="acc-item">
         <button type="button" class="acc-trigger" onclick="toggleAcc(this)">
@@ -1631,11 +1698,11 @@ footer{
         <div style="width:8px;height:8px;border-radius:50%;background:var(--danger)"></div>
         <div style="width:8px;height:8px;border-radius:50%;background:var(--warn)"></div>
         <div style="width:8px;height:8px;border-radius:50%;background:var(--ok)"></div>
-        <span style="font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--text-3);margin-left:6px">REAL SEQUENCE — Flip The Bird</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--text-3);margin-left:6px">REAL SEQUENCE</span>
       </div>
-      <img src="https://drive.google.com/uc?export=view&id=1BrX_S31yzH2uLxImDYcMOFIE1xfeKCON" alt="Premiere Pro シーケンス構成例 — Flip The Bird" style="width:100%;display:block" onerror="this.style.padding='40px';this.style.textAlign='center';this.style.color='var(--text-3)';this.style.background='var(--bg-3)';this.alt='画像を読み込めませんでした（Google Driveの共有設定を「リンクを知っている全員」に変更してください）'">
+      <img src="https://drive.google.com/uc?export=view&id=1BrX_S31yzH2uLxImDYcMOFIE1xfeKCON" alt="Premiere Pro シーケンス構成例" style="width:100%;display:block" onerror="this.style.padding='40px';this.style.textAlign='center';this.style.color='var(--text-3)';this.style.background='var(--bg-3)';this.alt='画像を読み込めませんでした（Google Driveの共有設定を「リンクを知っている全員」に変更してください）'">
       <div style="padding:12px 16px;background:var(--bg-3);border-top:1px solid var(--border)">
-        <p style="font-size:12px;color:var(--text-2);line-height:1.8">V1〜V8（映像）+ A1〜A6（音声）のフルトラック構成。このシーケンスを見るだけで、どこが単調かが一目でわかる。</p>
+        <p style="font-size:12px;color:var(--text-2);line-height:1.8">V1〜V8（映像）+ A1〜A6（音声）のフルトラック構成。このシーケンスを見るだけで、どこが単調かが一目でわかります。</p>
       </div>
     </div>
 
@@ -1715,7 +1782,7 @@ footer{
 
     <!-- 診断ガイド -->
     <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)">シーケンス診断の見方</h3>
-    <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:20px">上のシーケンス画像を開いたとき、以下の2点を確認するだけで動画の弱い部分がわかる。</p>
+    <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:20px">上のシーケンス画像を開いたとき、以下の2点を確認するだけで動画の弱い部分がわかります。</p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:40px">
       <div class="card" style="border-top:2px solid var(--danger)">
@@ -1724,7 +1791,7 @@ footer{
       </div>
       <div class="card" style="border-top:2px solid var(--warn)">
         <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);margin-bottom:8px">CHECK 2 — A3を見る</div>
-        <p style="font-size:13.5px;color:var(--text-2);line-height:1.9">BGMの切れ目が少ない区間は<strong style="color:var(--text)">感情・雰囲気が変化していない</strong>。1動画15〜30曲が目安。BGMが変わるたびに「場面の空気」が変わる。</p>
+        <p style="font-size:13.5px;color:var(--text-2);line-height:1.9">BGMの切れ目が少ない区間は<strong style="color:var(--text)">感情・雰囲気が変化していない</strong>。1動画15〜30曲が目安。BGMが変わるたびに「場面の空気」が変わります。</p>
       </div>
     </div>
 
@@ -1742,10 +1809,10 @@ footer{
     <hr class="sec-divider">
 
     <h3 style="font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:.06em;margin-bottom:8px">3秒ルール — 画角変更の鉄則</h3>
-    <p style="font-size:13px;color:var(--text-2);margin-bottom:24px">「3秒」は最小単位。実際には4つの尺に分解して考える。</p>
+    <p style="font-size:13px;color:var(--text-2);margin-bottom:24px">「3秒」は最小単位。実際には4つの尺に分解して考えます。</p>
 
     <div class="highlight highlight-danger" style="margin-bottom:36px">
-      <p><strong style="color:var(--danger)">カットを切るたびに必ず映像の見え方（画角）を変える。</strong>同じ距離・同じ角度の映像を連続して使わない。最長でも3秒に1回は必ず「見え方を変える」。</p>
+      <p><strong style="color:var(--danger)">カットを切るたびに必ず映像の見え方（画角）を変えます。</strong>同じ距離・同じ角度の映像を連続して使わありません。最長でも3秒に1回は必ず「見え方を変える」。</p>
     </div>
 
     <!-- 4つの尺 -->
@@ -1758,7 +1825,7 @@ footer{
         </div>
         <div style="padding:16px 20px">
           <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">インサート尺</p>
-          <p style="font-size:13px;color:var(--text-2);line-height:1.85">画角を変えるために差し込む映像クリップ1枚の長さ。3秒未満は短すぎて脳が処理できず、5秒を超えると間延びする。インサートはこの範囲に収める。</p>
+          <p style="font-size:13px;color:var(--text-2);line-height:1.85">画角を変えるために差し込む映像クリップ1枚の長さ。3秒未満は短すぎて脳が処理できず、5秒を超えると間延びします。インサートはこの範囲に収める。</p>
         </div>
       </div>
 
@@ -1780,7 +1847,7 @@ footer{
         </div>
         <div style="padding:16px 20px">
           <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">本編シーン尺 — 1つの話題は60秒でまとめる</p>
-          <p style="font-size:13px;color:var(--text-2);line-height:1.85">本編の情報・感情・ストーリーの1単位は<strong style="color:var(--text)">60秒以内</strong>にまとめる。60秒の中に<strong style="color:var(--text)">30秒ルールが2回</strong>発生する——つまり<strong style="color:var(--text)">1つの会話の中に必ず1度場面転換が入る</strong>。1回の会話で2つの話が展開されるイメージ。</p>
+          <p style="font-size:13px;color:var(--text-2);line-height:1.85">本編の情報・感情・ストーリーの1単位は<strong style="color:var(--text)">60秒以内</strong>にまとめます。60秒の中に<strong style="color:var(--text)">30秒ルールが2回</strong>発生する——つまり<strong style="color:var(--text)">1つの会話の中に必ず1度場面転換が入る</strong>。1回の会話で2つの話が展開されるイメージ。</p>
         </div>
       </div>
 
@@ -1793,7 +1860,7 @@ footer{
           <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">訴求パート — 最も伝えたいことは180秒</p>
           <p style="font-size:13px;color:var(--text-2);line-height:1.85">動画の中で最も伝えたいコアメッセージを届けるパート。ここまでに扁桃体→大脳辺縁系→ミラーニューロンと刺激が積み上がり、<strong style="color:var(--text)">前頭前野が受け取れる準備ができている</strong>ため少し長くても大丈夫。</p>
           <div style="margin-top:10px;padding:9px 12px;background:rgba(232,197,71,.06);border-left:2px solid var(--blue)">
-            <p style="font-size:12px;color:var(--accent);line-height:1.8">30秒ルールは有効。<strong>180秒の中に30秒のブロックが6つ</strong>＝6回話題が変わる構造が必要。「最も伝えたい話」を6つの角度から届けるイメージで設計する。</p>
+            <p style="font-size:12px;color:var(--accent);line-height:1.8">30秒ルールは有効。<strong>180秒の中に30秒のブロックが6つ</strong>＝6回話題が変わる構造が必要。「最も伝えたい話」を6つの角度から届けるイメージで設計します。</p>
           </div>
         </div>
       </div>
@@ -1825,7 +1892,7 @@ footer{
     <div class="card-grid">
       <div class="card">
         <div class="card-title">なぜ3秒か</div>
-        <div class="card-body">人の脳は同じ映像が3秒以上続くと「変化がない＝つまらない」と感じて注意が散漫になる。3秒ごとに映像を変えることで、脳を「見続けモード」にキープできる。</div>
+        <div class="card-body">人の脳は同じ映像が3秒以上続くと「変化がない＝つまらない」と感じて注意が散漫になります。3秒ごとに映像を変えることで、脳を「見続けモード」にキープできます。</div>
       </div>
       <div class="card">
         <div class="card-title">画角変更の種類</div>
@@ -1833,7 +1900,7 @@ footer{
       </div>
       <div class="card">
         <div class="card-title">同画角NGの例</div>
-        <div class="card-body">同じ距離・同じ角度のインタビュー映像を2つ続けてつなぐ（ジャンプカット）のは、わざとやる場合以外は使わない。必ず間にインサート映像を入れること。</div>
+        <div class="card-body">同じ距離・同じ角度のインタビュー映像を2つ続けてつなぐ（ジャンプカット）のは、わざとやる場合以外は使わありません。必ず間にインサート映像を入れること。</div>
       </div>
     </div>
 
@@ -1867,7 +1934,7 @@ footer{
       <div style="flex:1;min-width:200px">
         <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px">REFERENCE SHEET</div>
         <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px">【構成原本】スプレッドシート</div>
-        <div style="font-size:12px;color:var(--text-2);line-height:1.7">構成を作る際はこのシートをテンプレートとして使用すること。各動画の1語ゴール・エンジン・構成設計をここに記録する。</div>
+        <div style="font-size:12px;color:var(--text-2);line-height:1.7">構成を作る際はこのシートをテンプレートとして使用すること。各動画の1語ゴール・エンジン・構成設計をここに記録します。</div>
       </div>
       <a href="https://docs.google.com/spreadsheets/d/13tCqd1wqkjKv9HcG1ip3h4pU-AVG3dvNIA8PXuD_4Dg/edit?usp=sharing"
          target="_blank"
@@ -1886,13 +1953,13 @@ footer{
       <div class="engine-card">
         <div class="engine-num">01</div>
         <div class="engine-title">ゴール</div>
-        <div class="engine-body">見ている人に「最終的に何を感じてほしいか」を決める。感情を1つの言葉で表す。</div>
+        <div class="engine-body">見ている人に「最終的に何を感じてほしいか」を決めます。感情を1つの言葉で表す。</div>
         <div class="engine-example">例：「この人のようになりたい」という憧れ</div>
       </div>
       <div class="engine-card">
         <div class="engine-num">02</div>
         <div class="engine-title">勝敗条件</div>
-        <div class="engine-body">物語において何が「成功」で何が「失敗」なのかをはっきりさせる。見ている人が応援できる分かりやすい条件を決める。</div>
+        <div class="engine-body">物語において何が「成功」で何が「失敗」なのかをはっきりさせる。見ている人が応援できる分かりやすい条件を決めます。</div>
         <div class="engine-example">例：独立して10年続けられるか否か</div>
       </div>
       <div class="engine-card">
@@ -1904,7 +1971,7 @@ footer{
       <div class="engine-card">
         <div class="engine-num">04</div>
         <div class="engine-title">キャラクター機能</div>
-        <div class="engine-body">登場する人それぞれが物語の中でどんな役割を担っているかを決める。</div>
+        <div class="engine-body">登場する人それぞれが物語の中でどんな役割を担っているかを決めます。</div>
         <div class="engine-example">例：主人公・メンター・対照的存在</div>
       </div>
     </div>
@@ -1919,14 +1986,14 @@ footer{
           <span class="acc-q">ゴール：「弟がNASA宇宙飛行士になること」</span>
           <span class="acc-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="acc-body">ゴールがはっきりしているから、すべての出来事が「ゴールに近づいているか、遠ざかっているか」で判断できる。見ている人も同じ目線で物語を追える。ドキュメンタリーも同じで、最初に「この人のゴールは何か」をはっきり示すことが大切。</div>
+        <div class="acc-body">ゴールがはっきりしているから、すべての出来事が「ゴールに近づいているか、遠ざかっているか」で判断できます。見ている人も同じ目線で物語を追える。ドキュメンタリーも同じで、最初に「この人のゴールは何か」をはっきり示すことが大切。</div>
       </div>
       <div class="acc-item">
         <button type="button" class="acc-trigger" onclick="toggleAcc(this)">
           <span class="acc-q">勝敗条件：宇宙飛行士試験に合格 vs 不合格</span>
           <span class="acc-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
-        <div class="acc-body">勝敗の条件が具体的なほど緊張感が生まれる。「試験に受かるか落ちるか」は誰でも分かる条件。ドキュメンタリーでも「この人の挑戦が成功するかどうか」をできるだけ具体的に示す。</div>
+        <div class="acc-body">勝敗の条件が具体的なほど緊張感が生まれます。「試験に受かるか落ちるか」は誰でも分かる条件。ドキュメンタリーでも「この人の挑戦が成功するかどうか」をできるだけ具体的に示す。</div>
       </div>
       <div class="acc-item">
         <button type="button" class="acc-trigger" onclick="toggleAcc(this)">
@@ -1955,7 +2022,7 @@ footer{
         <div class="card-title">上昇と転落</div>
         <div class="card-body">
           <strong style="color:var(--text)">辛い状況 → うまくいく → また落ちる → 救われる</strong><br><br>
-          感情の「振れ幅」が一番大きくなる型。見ている人の共感が一番強く生まれる。「逆転の物語」に使う。
+          感情の「振れ幅」が一番大きくなる型。見ている人の共感が一番強く生まれます。「逆転の物語」に使う。
         </div>
       </div>
     </div>
@@ -1976,7 +2043,7 @@ footer{
     <h3 style="font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:.06em;margin-bottom:20px">弱さの設計</h3>
 
     <div class="highlight highlight-warn" style="margin-bottom:28px">
-      <p>人は「完璧な人」には共感できない。<strong style="color:var(--warn)">弱さ・欠点・悩み</strong>があるから「分かる」と感じ、応援したくなる。撮影する相手の「弱さ」を引き出すことが、共感を作るいちばん大事な仕事だ。</p>
+      <p>人は「完璧な人」には共感できない。<strong style="color:var(--warn)">弱さ・欠点・悩み</strong>があるから「分かる」と感じ、応援したくなります。撮影する相手の「弱さ」を引き出すことが、共感を作るいちばん大事な仕事です。</p>
     </div>
 
     <div class="char-list">
@@ -1986,7 +2053,7 @@ footer{
       </div>
       <div class="char-item">
         <span class="char-badge badge-warm">メンター</span>
-        <div class="char-body">主人公に気づきや勇気を与える人。動画では「アドバイスをくれる人」「師匠」「先輩」として登場することが多い。</div>
+        <div class="char-body">主人公に気づきや勇気を与える人。動画では「アドバイスをくれる人」「師匠」「先輩」として登場することが多いです。</div>
       </div>
       <div class="char-item">
         <span class="char-badge" style="background:rgba(74,222,128,.08);color:var(--ok);border:1px solid rgba(74,222,128,.25)">対照的存在</span>
@@ -1994,7 +2061,7 @@ footer{
       </div>
       <div class="char-item">
         <span class="char-badge badge-red">試練の提供者</span>
-        <div class="char-body">主人公に試練を与える存在（人・状況・社会の仕組みなど）。「悪役」である必要はない。越えなければいけない「壁」であればいい。</div>
+        <div class="char-body">主人公に試練を与える存在（人・状況・社会の仕組みなど）。「悪役」である必要はありません。越えなければいけない「壁」であればいいです。</div>
       </div>
     </div>
 
@@ -2061,22 +2128,22 @@ footer{
       <div class="angle-card">
         <div class="angle-icon">🌅</div>
         <div class="angle-name">ロング / ELS</div>
-        <div class="angle-desc">環境・状況を伝える。「孤独」「壮大さ」「圧倒」の感情に使う</div>
+        <div class="angle-desc">環境・状況を伝えます。「孤独」「壮大さ」「圧倒」の感情に使う</div>
       </div>
       <div class="angle-card">
         <div class="angle-icon">🧍</div>
         <div class="angle-name">ミディアム / MS</div>
-        <div class="angle-desc">人物の関係性・動作を伝える。会話・行動の基本ショット</div>
+        <div class="angle-desc">人物の関係性・動作を伝えます。会話・行動の基本ショット</div>
       </div>
       <div class="angle-card">
         <div class="angle-icon">👤</div>
         <div class="angle-name">クローズアップ / CU</div>
-        <div class="angle-desc">感情・表情を伝える。共感・緊張・感動の最重要ショット</div>
+        <div class="angle-desc">感情・表情を伝えます。共感・緊張・感動の最重要ショット</div>
       </div>
       <div class="angle-card">
         <div class="angle-icon">🔍</div>
         <div class="angle-name">マクロ / BCU</div>
-        <div class="angle-desc">細部・質感・こだわりを伝える。「職人性」「繊細さ」に使う</div>
+        <div class="angle-desc">細部・質感・こだわりを伝えます。「職人性」「繊細さ」に使う</div>
       </div>
       <div class="angle-card">
         <div class="angle-icon">⬆️</div>
@@ -2107,7 +2174,7 @@ footer{
       <div class="card">
         <span class="badge badge-blue" style="margin-bottom:12px">OP テロップ</span>
         <div class="card-title">人物紹介テロップ</div>
-        <div class="card-body">名前・役職・年齢などを表示する。画面の左下か右下に置く。<br><br><strong>鉄則：</strong>画面に出た瞬間に読み切れる文字数にする。3秒以内に読めない量はNG。</div>
+        <div class="card-body">名前・役職・年齢などを表示します。画面の左下か右下に置く。<br><br><strong>鉄則：</strong>画面に出た瞬間に読み切れる文字数にします。3秒以内に読めない量はNG。</div>
       </div>
       <div class="card">
         <span class="badge badge-warm" style="margin-bottom:12px">場面転換テロップ</span>
@@ -2117,7 +2184,7 @@ footer{
       <div class="card">
         <span class="badge badge-red" style="margin-bottom:12px">補足テロップ</span>
         <div class="card-title">発言補足・強調テロップ</div>
-        <div class="card-body">話している人の言葉を文字で補強する。話している内容を全部テロップにしない——一番大事な一文だけを抜き出す。<br><br><strong>鉄則：</strong>話者の口と同じタイミングで表示する。ずれると気持ち悪い。</div>
+        <div class="card-body">話している人の言葉を文字で補強します。話している内容を全部テロップにしない——一番大事な一文だけを抜き出す。<br><br><strong>鉄則：</strong>話者の口と同じタイミングで表示します。ずれると気持ち悪いです。</div>
       </div>
     </div>
 
@@ -2147,7 +2214,7 @@ footer{
 <footer>
   <div style="width:40px;height:1px;margin:0 auto 32px;background:var(--grad-main)"></div>
   <div style="font-family:'Bebas Neue',cursive;font-size:32px;letter-spacing:.28em;margin-bottom:12px;
-    background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">FLIP THE BIRD</div>
+    background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">EDIT MANUAL</div>
   <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px">Editing As Brain Science. — 社会に中指を立てる作品を — © 2025</div>
   <div style="display:flex;justify-content:center;gap:8px">
     <span style="width:4px;height:4px;border-radius:50%;background:var(--danger);display:inline-block"></span>
