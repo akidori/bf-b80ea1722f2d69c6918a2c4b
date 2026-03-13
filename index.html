@@ -19,7 +19,7 @@
    暗室、フィルム、手書きノート、荒削りな本物感
    ===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root{
   /* ── Dark Film Palette ── */
@@ -74,7 +74,7 @@ html{scroll-behavior:smooth}
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:'Shippori Mincho B1','Shippori Mincho','Noto Serif JP',serif;
+  font-family:'Noto Sans JP',sans-serif;
   font-size:16px;
   line-height:2.0;
   letter-spacing:.05em;
@@ -106,8 +106,8 @@ body{
 .perf-strip{display:none}
 .film-title-bar{flex:1;display:flex;align-items:center;padding:0 24px;gap:14px}
 .film-brand{
-  font-family:'Bebas Neue',cursive;
-  font-size:17px;letter-spacing:.22em;
+  font-family:'Noto Sans JP',sans-serif;font-weight:900;
+  font-size:15px;letter-spacing:.08em;
   background:var(--grad-main);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
@@ -178,8 +178,8 @@ body{
   content:'';width:16px;height:1px;background:var(--accent);display:block;flex-shrink:0;
 }
 .ch-title{
-  font-family:'Bebas Neue',cursive;
-  font-size:clamp(32px,5vw,64px);
+  font-family:'Noto Sans JP',sans-serif;font-weight:900;
+  font-size:clamp(26px,4vw,48px);
   line-height:.92;letter-spacing:.02em;
   margin-bottom:20px;color:var(--text);
   position:relative;display:block;
@@ -192,7 +192,7 @@ body{
   background:var(--accent);
 }
 .ch-sub{
-  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-family:'Noto Sans JP',sans-serif;
   font-size:15.5px;font-weight:400;color:var(--text-2);
   line-height:2.0;margin-bottom:40px;
   padding-bottom:24px;border-bottom:1px solid var(--border);
@@ -220,7 +220,7 @@ body{
 .hero::after{
   content:'FLIP';
   position:absolute;right:-12px;bottom:-20px;z-index:0;
-  font-family:'Bebas Neue',cursive;
+  font-family:'Noto Sans JP',sans-serif;font-weight:900;
   font-size:clamp(200px,30vw,420px);
   color:rgba(232,197,71,.03);
   line-height:1;pointer-events:none;user-select:none;
@@ -250,13 +250,13 @@ body{
   background:var(--accent);
 }
 .hero-kv{
-  font-family:'Bebas Neue',cursive;
-  font-size:clamp(68px,12vw,148px);
+  font-family:'Noto Sans JP',sans-serif;font-weight:900;
+  font-size:clamp(48px,8vw,96px);
   line-height:.82;letter-spacing:.015em;
   color:var(--text);margin-bottom:2px;
 }
 .hero-kv-sub{
-  font-family:'Bebas Neue',cursive;
+  font-family:'Noto Sans JP',sans-serif;font-weight:900;
   font-size:clamp(36px,6.5vw,76px);
   line-height:.88;letter-spacing:.015em;
   background:var(--grad-main);
@@ -274,7 +274,7 @@ body{
   color:var(--accent);border-color:var(--accent-b);
 }
 .hero-desc{
-  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-family:'Noto Sans JP',sans-serif;
   font-size:16px;font-weight:400;color:var(--text-2);
   max-width:440px;line-height:2.2;letter-spacing:.06em;letter-spacing:.02em;
 }
@@ -302,11 +302,11 @@ body{
 .toc-card::before{
   content:attr(data-num);
   position:absolute;right:-2px;bottom:-10px;
-  font-family:'Bebas Neue',cursive;font-size:64px;line-height:1;
+  font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:64px;line-height:1;
   color:rgba(232,197,71,.05);pointer-events:none;user-select:none;
 }
 .toc-card:hover{background:var(--bg-3)}
-.toc-card:hover .toc-name{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:var(--text-2);line-height:1.4;margin-top:12px;transition:color .15s}
+.toc-card:hover .toc-name{font-family:'Noto Sans JP',sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:var(--text-2);line-height:1.4;margin-top:12px;transition:color .15s}
 .toc-num{
   font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.16em;
   color:var(--accent);
@@ -329,7 +329,7 @@ body{
 .sec-dark .card,.sec-dark2 .card{background:var(--bg-3)}
 .sec-dark .card:hover,.sec-dark2 .card:hover{background:var(--bg-3)}
 .card-title{
-  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-family:'Noto Sans JP',sans-serif;
   font-size:16px;font-weight:700;letter-spacing:.14em;color:var(--text);
   margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border);
 }
@@ -412,7 +412,7 @@ tbody td{padding:13px 16px;font-size:15px;font-weight:500;color:var(--text-2);ve
 .brain-card:hover{background:var(--bg-4)}
 .brain-card.amygdala{border-top:2px solid var(--danger)}
 .brain-card-title{
-  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-family:'Noto Sans JP',sans-serif;
   font-size:17px;font-weight:700;letter-spacing:.14em;color:var(--text);
   margin-bottom:10px;padding-bottom:10px;
   border-bottom:1px solid var(--border);
@@ -422,7 +422,7 @@ tbody td{padding:13px 16px;font-size:15px;font-weight:500;color:var(--text-2);ve
 /* アコーディオン型brain-card */
 .brain-trigger{width:100%;background:none;border:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;text-align:left}
 .brain-icon{width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:var(--r-sm);background:var(--bg-4);border:1px solid var(--border-2);font-size:16px}
-.brain-name{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-size:16px;font-weight:700;letter-spacing:.14em;color:var(--text)}
+.brain-name{font-family:'Noto Sans JP',sans-serif;font-size:16px;font-weight:700;letter-spacing:.14em;color:var(--text)}
 .brain-tag{font-family:'DM Mono',monospace;font-size:9px;color:var(--text-3);margin-top:2px;letter-spacing:.08em}
 .brain-chevron{width:16px;height:16px;margin-left:auto;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text-3);transition:transform .2s}
 .brain-chevron svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2}
@@ -437,7 +437,7 @@ tbody td{padding:13px 16px;font-size:15px;font-weight:500;color:var(--text-2);ve
 .acc-item{background:var(--bg-3);transition:background .15s}
 .acc-item.open{background:var(--bg-4)}
 .acc-trigger{width:100%;background:none;border:none;cursor:pointer;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
-.acc-q{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-size:16px;font-weight:600;letter-spacing:.1em;color:var(--text-2);line-height:1.4}
+.acc-q{font-family:'Noto Sans JP',sans-serif;font-size:16px;font-weight:600;letter-spacing:.1em;color:var(--text-2);line-height:1.4}
 .acc-item.open .acc-q{color:var(--text)}
 .acc-icon{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text-3)}
 .acc-icon svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .2s}
@@ -459,12 +459,12 @@ tbody td{padding:13px 16px;font-size:15px;font-weight:500;color:var(--text-2);ve
   width:52px;height:52px;flex-shrink:0;z-index:1;
   background:var(--grad-main);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',cursive;font-size:22px;color:var(--bg);
+  font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:22px;color:var(--bg);
   box-shadow:0 0 0 4px rgba(232,197,71,.12);
 }
 .wf-content{padding-bottom:28px}
 .wf-title{
-  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-family:'Noto Sans JP',sans-serif;
   font-size:16px;font-weight:700;letter-spacing:.12em;color:var(--text);margin-bottom:6px;
   display:flex;align-items:center;gap:12px;padding-top:12px;
 }
@@ -497,8 +497,8 @@ tbody td{padding:13px 16px;font-size:15px;font-weight:500;color:var(--text-2);ve
   transition:background .15s;
 }
 .engine-card:hover{background:var(--bg-4)}
-.engine-num{font-family:'Bebas Neue',cursive;font-size:48px;color:rgba(232,197,71,.12);line-height:1;margin-bottom:4px}
-.engine-title{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-size:17px;font-weight:700;letter-spacing:.14em;color:var(--text);margin-bottom:8px}
+.engine-num{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:48px;color:rgba(232,197,71,.12);line-height:1;margin-bottom:4px}
+.engine-title{font-family:'Noto Sans JP',sans-serif;font-size:17px;font-weight:700;letter-spacing:.14em;color:var(--text);margin-bottom:8px}
 .engine-body{font-size:15.5px;font-weight:400;color:var(--text-2);line-height:2.1}
 .engine-example{margin-top:12px;padding:9px 14px;background:rgba(232,197,71,.06);border-left:2px solid var(--accent);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:12px;color:var(--accent)}
 
@@ -549,7 +549,7 @@ tbody td{padding:13px 16px;font-size:15px;font-weight:500;color:var(--text-2);ve
 .insert-card{background:var(--bg-3);padding:18px;transition:background .15s}
 .insert-card:hover{background:var(--bg-4)}
 .insert-type{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.insert-title{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-weight:700;font-size:16px;letter-spacing:.12em;color:var(--text);margin-bottom:6px}
+.insert-title{font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:16px;letter-spacing:.12em;color:var(--text);margin-bottom:6px}
 .insert-body{font-size:15.5px;font-weight:400;color:var(--text-2);line-height:2.1}
 
 /* ─────────────────────────────────────
@@ -924,7 +924,7 @@ code, .dm-mono {
     pointer-events:none"></div>
   <!-- 透かし FLIP -->
   <div style="position:absolute;right:-10px;bottom:-16px;z-index:0;
-    font-family:'Bebas Neue',cursive;
+    font-family:'Noto Sans JP',sans-serif;font-weight:900;
     font-size:clamp(180px,28vw,360px);
     color:rgba(14,165,233,.038);
     line-height:1;letter-spacing:-.01em;
@@ -967,7 +967,7 @@ code, .dm-mono {
 <!-- TOC -->
 <section style="background:var(--bg-2);padding:40px 0 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="container">
-    <p style="font-family:'Bebas Neue',cursive;font-size:10px;letter-spacing:.38em;color:rgba(232,197,71,.5);margin-bottom:4px">CONTENTS</p>
+    <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.38em;color:rgba(232,197,71,.5);margin-bottom:4px">CONTENTS</p>
     <div class="toc-grid">
       <a href="#ch00" class="toc-card feat" data-num="00"><span class="toc-num">CH00</span><div class="toc-name">マインドセット</div></a>
       <a href="#ch01" class="toc-card feat" data-num="01"><span class="toc-num">CH01</span><div class="toc-name">脳の構造と30秒理論</div></a>
@@ -992,7 +992,7 @@ code, .dm-mono {
   <!-- テキスト -->
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:rgba(232,197,71,.7)">CHAPTER 00</span>
-    <span style="font-family:'Noto Serif JP','Shippori Mincho B1',serif;font-size:clamp(22px,3.5vw,38px);color:#f0ede8;letter-spacing:.12em;line-height:1.2;font-weight:600">マインドセット</span>
+    <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:#f0ede8;letter-spacing:.06em;line-height:1.3;font-weight:700">マインドセット</span>
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(240,237,232,.4)">MINDSET</span>
   </div>
   <!-- 右端のアクセントライン -->
@@ -1014,8 +1014,8 @@ code, .dm-mono {
     <div style="border-left:2px solid var(--border-2);padding:20px 24px;margin-bottom:32px;background:rgba(232,197,71,.06)">
       <p style="color:var(--text-2);font-size:14px;line-height:2;margin-bottom:12px">なぜか。脳のつくりを考えれば、すぐ分かる。</p>
       <p style="color:var(--text-2);font-size:15px;line-height:2.1;margin-bottom:12px">
-        脳は体重の約 <strong style="color:var(--accent);font-size:22px;font-family:'Bebas Neue',cursive;letter-spacing:.05em">2%</strong> しかありません。
-        なのに消費エネルギーは全体の <strong style="color:var(--accent);font-size:22px;font-family:'Bebas Neue',cursive;letter-spacing:.05em">20%</strong> を占める。
+        脳は体重の約 <strong style="color:var(--accent);font-size:22px;font-family:'Noto Sans JP',sans-serif;font-weight:900;letter-spacing:.05em">2%</strong> しかありません。
+        なのに消費エネルギーは全体の <strong style="color:var(--accent);font-size:22px;font-family:'Noto Sans JP',sans-serif;font-weight:900;letter-spacing:.05em">20%</strong> を占める。
       </p>
       <p style="color:var(--text-2);font-size:14px;line-height:2">
         つまり脳は「小さいのに、燃費が異常に悪い臓器」です。
@@ -1026,7 +1026,7 @@ code, .dm-mono {
       だから脳は常に、無意識でこう考えています。
     </p>
     <div style="text-align:center;padding:28px 0;margin-bottom:32px">
-      <p style="font-family:'Noto Serif JP',serif;font-size:20px;color:var(--text);line-height:1.7;font-style:italic">
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:20px;color:var(--text);line-height:1.7;font-weight:500">
         「できるなら、余計な負荷はかけたくない」
       </p>
     </div>
@@ -1052,7 +1052,7 @@ code, .dm-mono {
 
     <!-- ── 答え ── -->
     <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);border-left:2px solid var(--accent);padding:24px 28px;margin-bottom:36px">
-      <p style="font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:.2em;color:var(--accent);margin-bottom:12px">THE ANSWER</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:12px;letter-spacing:.2em;color:var(--accent);margin-bottom:12px">THE ANSWER</p>
       <p style="color:var(--text);font-size:16px;line-height:2;font-weight:700">
         「脳の各部位に、正しい順番で、30秒ずつ見せること」
       </p>
@@ -1072,7 +1072,7 @@ code, .dm-mono {
     </p>
 
     <div style="text-align:center;padding:32px 0;margin-bottom:12px">
-      <p style="font-family:'Bebas Neue',cursive;font-size:clamp(32px,5vw,56px);color:var(--text);letter-spacing:.08em;line-height:1">それが構成です。</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(32px,5vw,56px);color:var(--text);letter-spacing:.08em;line-height:1">それが構成です。</p>
       <ul style="margin-top:14px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;text-align:left">
         <li style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--accent);display:flex;align-items:center;gap:10px"><span style="width:16px;height:1px;background:var(--accent);display:inline-block;flex-shrink:0"></span>起承転結</li>
         <li style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--accent);display:flex;align-items:center;gap:10px"><span style="width:16px;height:1px;background:var(--accent);display:inline-block;flex-shrink:0"></span>三幕構成</li>
@@ -1100,8 +1100,8 @@ code, .dm-mono {
     <hr class="sec-divider" style="margin:48px 0">
 
     <!-- ── 外部流入 × コンテンツクオリティ ── -->
-    <span style="font-family:'Bebas Neue',cursive;font-size:10px;letter-spacing:.4em;color:var(--accent);display:block;margin-bottom:10px;border-bottom:1.5px solid var(--accent);padding-bottom:4px;width:fit-content">MINDSET ADD-ON</span>
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(24px,4vw,36px);color:var(--text);letter-spacing:.03em;margin-bottom:20px;line-height:1.1">外部流入時代に必要なのは、<br>圧倒的なコンテンツクオリティだ</h3>
+    <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.4em;color:var(--accent);display:block;margin-bottom:10px;border-bottom:1.5px solid var(--accent);padding-bottom:4px;width:fit-content">MINDSET ADD-ON</span>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(24px,4vw,36px);color:var(--text);letter-spacing:.03em;margin-bottom:20px;line-height:1.1">外部流入時代に必要なのは、<br>圧倒的なコンテンツクオリティだ</h3>
 
     <p style="color:var(--text-2);font-size:15px;line-height:2.1;margin-bottom:28px">
       これまで日本のYouTubeでは「外部流入はNG」とされてきた。<br>
@@ -1116,7 +1116,7 @@ code, .dm-mono {
 
     <!-- なぜ可能なのか -->
     <div style="background:rgba(232,197,71,.06);border:1px solid rgba(14,165,233,.14);border-left:2px solid var(--accent);padding:18px 22px;margin-bottom:28px">
-      <p style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.22em;color:var(--accent);margin-bottom:10px">なぜ彼らは外部流入を取り込めるのか</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.22em;color:var(--accent);margin-bottom:10px">なぜ彼らは外部流入を取り込めるのか</p>
       <p style="font-size:14px;color:var(--text-2);line-height:2;font-weight:700;margin-bottom:8px">
         「誰が見ても面白い」レベルまでコンテンツを仕上げているから。
       </p>
@@ -1133,7 +1133,7 @@ code, .dm-mono {
 
     <!-- 結論 -->
     <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);border-left:2px solid var(--accent);padding:20px 24px">
-      <p style="font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:.2em;color:var(--accent);margin-bottom:10px">このマニュアルを作っている理由</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:12px;letter-spacing:.2em;color:var(--accent);margin-bottom:10px">このマニュアルを作っている理由</p>
       <p style="font-size:15px;color:var(--text);line-height:2;font-weight:700">
         外部流入時代で戦えるのは、圧倒的なコンテンツクオリティを持つチャンネルだけです。
       </p>
@@ -1156,7 +1156,7 @@ code, .dm-mono {
   <!-- テキスト -->
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:rgba(232,197,71,.7)">CHAPTER 01</span>
-    <span style="font-family:'Noto Serif JP','Shippori Mincho B1',serif;font-size:clamp(22px,3.5vw,38px);color:#f0ede8;letter-spacing:.12em;line-height:1.2;font-weight:600">脳の構造と30秒理論</span>
+    <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:#f0ede8;letter-spacing:.06em;line-height:1.3;font-weight:700">脳の構造と30秒理論</span>
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(240,237,232,.4)">BRAIN STRUCTURE & 30 SEC THEORY</span>
   </div>
   <!-- 右端のアクセントライン -->
@@ -1198,19 +1198,19 @@ code, .dm-mono {
         <p style="font-size:13px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:.04em">✓ 正しい思考の順序</p>
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
           <div style="text-align:center;padding:10px 16px;background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2)">
-            <div style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.15em;color:var(--accent);margin-bottom:4px">STEP 1</div>
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.15em;color:var(--accent);margin-bottom:4px">STEP 1</div>
             <div style="font-size:13px;color:var(--text);font-weight:700;line-height:1.4">脳の部位への<br>刺激を設計する</div>
             <div style="font-size:11px;color:var(--text-2);margin-top:4px">数百万年変わらない論理</div>
           </div>
-          <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--accent)">+</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:20px;color:var(--accent)">+</div>
           <div style="text-align:center;padding:10px 16px;background:var(--bg-4);border:1px solid var(--border-2)">
-            <div style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.15em;color:var(--text-2);margin-bottom:4px">STEP 2</div>
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.15em;color:var(--text-2);margin-bottom:4px">STEP 2</div>
             <div style="font-size:13px;color:var(--text);font-weight:700;line-height:1.4">あなたの感性を<br>最後に加える</div>
             <div style="font-size:11px;color:var(--text-2);margin-top:4px">個性・スタイル・視点</div>
           </div>
-          <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--text-2)">=</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:20px;color:var(--text-2)">=</div>
           <div style="text-align:center;padding:10px 16px;background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2)">
-            <div style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.15em;color:var(--ok);margin-bottom:4px">OUTPUT</div>
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.15em;color:var(--ok);margin-bottom:4px">OUTPUT</div>
             <div style="font-size:13px;color:var(--text);font-weight:700;line-height:1.4">再現性のある<br>面白い動画</div>
           </div>
         </div>
@@ -1226,8 +1226,8 @@ code, .dm-mono {
     <!-- ======= PART 1: 5段階の脳 ======= -->
     <div style="border-top:2px solid var(--border);padding-top:32px;margin-bottom:32px">
       <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:6px">
-        <span style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.3em;color:var(--accent)">PART 1</span>
-        <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(26px,4vw,38px);letter-spacing:.05em;color:var(--text);line-height:1">脳の5段階処理</h3>
+        <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.3em;color:var(--accent)">PART 1</span>
+        <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(26px,4vw,38px);letter-spacing:.05em;color:var(--text);line-height:1">脳の5段階処理</h3>
       </div>
       <p style="font-size:13px;color:var(--text-2);line-height:1.7">このマニュアルで最も重要な概念。すべての編集技術はこの5段階に基づいている。</p>
     </div>
@@ -1238,9 +1238,9 @@ code, .dm-mono {
         脳には、はっきりしたルールがあります。
       </p>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap">
-        <div style="padding:10px 20px;border-radius:var(--r-full);background:rgba(232,68,68,.1);border:1px solid rgba(232,68,68,.25);font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:.08em;color:var(--danger)">軽い脳</div>
-        <div style="font-family:'Bebas Neue',cursive;font-size:22px;background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">→</div>
-        <div style="padding:10px 20px;border-radius:var(--r-full);background:rgba(78,205,196,.08);border:1px solid rgba(78,205,196,.2);font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:.08em;color:var(--cyan)">重い脳</div>
+        <div style="padding:10px 20px;border-radius:var(--r-full);background:rgba(232,68,68,.1);border:1px solid rgba(232,68,68,.25);font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;letter-spacing:.08em;color:var(--danger)">軽い脳</div>
+        <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:22px;background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">→</div>
+        <div style="padding:10px 20px;border-radius:var(--r-full);background:rgba(78,205,196,.08);border:1px solid rgba(78,205,196,.2);font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;letter-spacing:.08em;color:var(--cyan)">重い脳</div>
         <p style="font-size:14px;color:var(--text-2);margin:0">の順番でしか動きたくない…</p>
       </div>
       <div style="padding:16px 18px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.15);border-left:2px solid var(--danger);border-radius:0 var(--r-sm) var(--r-sm) 0">
@@ -1250,49 +1250,49 @@ code, .dm-mono {
 
     <!-- 大きなフロー図 -->
     <div style="background:var(--bg);padding:28px 24px;margin-bottom:8px">
-      <p style="font-family:'Bebas Neue',cursive;font-size:10px;letter-spacing:.3em;color:var(--text-3);margin-bottom:20px">STIMULATION ORDER — 刺激する順番</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.3em;color:var(--text-3);margin-bottom:20px">STIMULATION ORDER — 刺激する順番</p>
       <div style="display:flex;flex-direction:column;gap:8px">
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">①</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">①</div>
           <div style="background:rgba(232,68,68,.12);border-left:2px solid var(--danger);padding:12px 16px">
-            <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--danger);letter-spacing:.05em">扁桃体</div>
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--danger);letter-spacing:.05em">扁桃体</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">感情を動かす / 自分ごと化 / フック</div>
           </div>
           <div style="width:28px;text-align:center;font-size:10px;color:var(--text-3)">▼</div>
         </div>
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">②</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">②</div>
           <div style="background:rgba(232,197,71,.08);border-left:3px solid var(--warn);padding:12px 16px">
-            <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--warn);letter-spacing:.05em">大脳辺縁系</div>
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--warn);letter-spacing:.05em">大脳辺縁系</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">ドーパミン / 続きを見たくなる / 期待感</div>
           </div>
           <div style="width:28px;text-align:center;font-size:10px;color:var(--text-3)">▼</div>
         </div>
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">③</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">③</div>
           <div style="background:rgba(232,197,71,.06);border-left:2px solid var(--accent);padding:12px 16px">
-            <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--cyan);letter-spacing:.05em">ミラーニューロン</div>
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--cyan);letter-spacing:.05em">ミラーニューロン</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">当事者になる / 共感 / 没入</div>
           </div>
           <div style="width:28px;text-align:center;font-size:10px;color:var(--text-3)">▼</div>
         </div>
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">④</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">④</div>
           <div style="background:rgba(74,158,255,.08);border-left:2px solid var(--blue);padding:12px 16px">
-            <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--accent);letter-spacing:.05em">前頭前野</div>
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--accent);letter-spacing:.05em">前頭前野</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">論理・理解 / なるほど / 情報処理</div>
           </div>
           <div style="width:28px;text-align:center;font-size:10px;color:var(--text-3)">▼</div>
         </div>
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">⑤</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">⑤</div>
           <div style="background:rgba(74,222,128,.08);border-left:2px solid var(--ok);padding:12px 16px">
-            <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--ok);letter-spacing:.05em">海馬</div>
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--ok);letter-spacing:.05em">海馬</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">長期記憶 / 人生を変える / 行動変容</div>
           </div>
           <div style="width:28px"></div>
@@ -1302,7 +1302,7 @@ code, .dm-mono {
 
       <!-- ゴール -->
       <div style="margin-top:20px;padding:14px 16px;background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);display:flex;align-items:center;gap:14px">
-        <span style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.2em;color:var(--accent);flex-shrink:0">GOAL</span>
+        <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.2em;color:var(--accent);flex-shrink:0">GOAL</span>
         <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin:0">この順番で刺激すること＝「面白い動画を作ること」。<br>5段階すべてに届いた動画だけが、記憶に残り、人を動かす。</p>
       </div>
 
@@ -1372,16 +1372,16 @@ code, .dm-mono {
     <hr class="sec-divider">
 
     <!-- ======= PART 2: 各部位の詳細 ======= -->
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:32px">PART 2 — 各部位の作り方</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:32px">PART 2 — 各部位の作り方</h3>
 
     <!-- 2-1: 扁桃体 -->
     <div style="margin-bottom:48px">
-      <h4 style="font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:.06em;color:var(--danger);margin-bottom:4px">① 扁桃体の刺激 — 冒頭フックの設計</h4>
+      <h4 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:20px;letter-spacing:.06em;color:var(--danger);margin-bottom:4px">① 扁桃体の刺激 — 冒頭フックの設計</h4>
       <p style="font-size:13px;color:var(--text-2);margin-bottom:20px">動画の最初に必ずやること</p>
 
       <!-- 最重要警告 -->
       <div style="background:rgba(200,32,16,.06);border:1px solid rgba(200,32,16,.25);border-left:2px solid var(--danger);padding:20px 24px;margin-bottom:24px">
-        <p style="font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:.2em;color:var(--danger);margin-bottom:10px">⚠ 最も多い誤解</p>
+        <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:12px;letter-spacing:.2em;color:var(--danger);margin-bottom:10px">⚠ 最も多い誤解</p>
         <p style="font-size:15px;color:var(--text);font-weight:700;line-height:1.8;margin-bottom:10px">
           「喧嘩・炎上・衝撃映像」を冒頭に入れても、長期的なファンにはなりません。
         </p>
@@ -1414,7 +1414,7 @@ code, .dm-mono {
 
       <!-- ショート→長尺への補足 -->
       <div style="background:rgba(232,197,71,.06);border:1px solid rgba(14,165,233,.16);border-left:2px solid var(--accent);padding:16px 20px">
-        <p style="font-family:'Bebas Neue',cursive;font-size:10.5px;letter-spacing:.2em;color:var(--accent);margin-bottom:8px">MEMO — ショートから長尺へ移行させる場合も同じ考え方</p>
+        <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10.5px;letter-spacing:.2em;color:var(--accent);margin-bottom:8px">MEMO — ショートから長尺へ移行させる場合も同じ考え方</p>
         <p style="font-size:13px;color:var(--text-2);line-height:2">
           ショート動画で扁桃体を刺激できていれば、視聴者は「この人のことをもっと知りたい」という動機で長尺に流入してくる。<br>
           ドーパミン刺激のショートで集めた視聴者は、長尺を見ません。「次の短い刺激」を求めるだけだからです。
@@ -1424,7 +1424,7 @@ code, .dm-mono {
 
     <!-- 2-2: 大脳辺縁系 -->
     <div style="margin-bottom:48px">
-      <h4 style="font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:.06em;color:var(--warn);margin-bottom:4px">② 大脳辺縁系の刺激 — 「続きを見たい」状態を作る</h4>
+      <h4 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:20px;letter-spacing:.06em;color:var(--warn);margin-bottom:4px">② 大脳辺縁系の刺激 — 「続きを見たい」状態を作る</h4>
       <p style="font-size:13px;color:var(--text-2);margin-bottom:16px">ドーパミンを正しく使う</p>
 
       <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:16px">
@@ -1432,7 +1432,7 @@ code, .dm-mono {
       </p>
 
       <div style="background:rgba(200,169,110,.06);border:1px solid rgba(200,169,110,.2);border-radius:8px;padding:20px 24px;margin-bottom:20px">
-        <div style="font-family:'Bebas Neue',cursive;font-size:15px;color:var(--warn);letter-spacing:.1em;margin-bottom:12px">ドーパミンの発生構造</div>
+        <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--warn);letter-spacing:.1em;margin-bottom:12px">ドーパミンの発生構造</div>
         <div class="flow">
           <div class="flow-step" style="background:rgba(200,169,110,.2);border:1px solid rgba(200,169,110,.4);color:var(--warn)">予測させる<br><span style="font-size:10px;opacity:.8">「次どうなる？」</span></div>
           <div class="flow-arrow">→</div>
@@ -1466,7 +1466,7 @@ code, .dm-mono {
 
     <!-- 2-3: ミラーニューロン -->
     <div style="margin-bottom:48px">
-      <h4 style="font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:.06em;color:var(--cyan);margin-bottom:4px">③ ミラーニューロンの刺激 — 共感を設計する</h4>
+      <h4 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:20px;letter-spacing:.06em;color:var(--cyan);margin-bottom:4px">③ ミラーニューロンの刺激 — 共感を設計する</h4>
       <p style="font-size:13px;color:var(--text-2);margin-bottom:16px">視聴者を「物語の当事者」にする</p>
 
       <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:16px">
@@ -1496,7 +1496,7 @@ code, .dm-mono {
     <hr class="sec-divider">
 
     <!-- ======= PART 3: 30秒理論 ======= -->
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:32px">PART 3 — 30秒理論</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:32px">PART 3 — 30秒理論</h3>
 
     <div class="highlight highlight-warn" style="margin-bottom:24px">
       <p style="font-size:15px;line-height:1.9"><strong style="color:var(--warn)">30秒理論は「最初の30秒」の話ではない。</strong>動画全体が「30秒の塊」の連続で構成されているという構造の話です。</p>
@@ -1507,7 +1507,7 @@ code, .dm-mono {
     </p>
 
     <div style="background:var(--bg-4);border:1px solid var(--border-2);border-radius:8px;padding:24px 28px;margin-bottom:16px">
-      <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">30秒の塊の構造（動画全体で繰り返す）</div>
+      <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">30秒の塊の構造（動画全体で繰り返す）</div>
       <div class="flow" style="flex-wrap:wrap">
         <div class="flow-step" style="background:rgba(232,52,28,.15);border:1px solid rgba(232,52,28,.3);color:var(--danger)">扁桃体を刺激<br><span style="font-size:10px;opacity:.8">感情・自分ごと化</span></div>
         <div class="flow-arrow">→</div>
@@ -1523,7 +1523,7 @@ code, .dm-mono {
     <hr class="sec-divider">
 
     <!-- ======= PART 4: エンタメ化 ======= -->
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:32px">PART 4 — エンタメ化</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:32px">PART 4 — エンタメ化</h3>
 
     <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
       動画には「話の軸（伝えたい内容）」がある。しかしそのまま説明すると前頭前野ばかりを使うため、人は飽きる。
@@ -1531,7 +1531,7 @@ code, .dm-mono {
     </p>
 
     <div style="background:var(--bg-4);border:1px solid var(--border-2);padding:24px 28px;margin-bottom:28px">
-      <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">エンタメ化の構造（ジェットコースター型）</div>
+      <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">エンタメ化の構造（ジェットコースター型）</div>
       <div class="flow" style="flex-wrap:wrap">
         <div class="flow-step">話の軸<br><span style="font-size:10px;opacity:.8">前頭前野</span></div>
         <div class="flow-arrow">→</div>
@@ -1546,7 +1546,7 @@ code, .dm-mono {
 
     <!-- 参考動画 -->
     <div style="margin-bottom:32px">
-      <p style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.25em;color:var(--text-2);margin-bottom:12px">REFERENCE VIDEO — エンタメ化の実例</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.25em;color:var(--text-2);margin-bottom:12px">REFERENCE VIDEO — エンタメ化の実例</p>
       <div style="position:relative;width:100%;padding-top:56.25%;background:#000">
         <iframe
           src="https://www.youtube.com/embed/WPdf41O9Ua4"
@@ -1603,7 +1603,7 @@ code, .dm-mono {
   <!-- テキスト -->
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:rgba(232,197,71,.7)">CHAPTER 05</span>
-    <span style="font-family:'Noto Serif JP','Shippori Mincho B1',serif;font-size:clamp(22px,3.5vw,38px);color:#f0ede8;letter-spacing:.12em;line-height:1.2;font-weight:600">ワークフロー</span>
+    <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:#f0ede8;letter-spacing:.06em;line-height:1.3;font-weight:700">ワークフロー</span>
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(240,237,232,.4)">WORKFLOW</span>
   </div>
   <!-- 右端のアクセントライン -->
@@ -1652,7 +1652,7 @@ code, .dm-mono {
               <span class="wf-detail-icon"><svg viewBox="0 0 10 10"><polyline points="1 3 5 7 9 3"/></svg></span>
             </button>
             <div class="wf-detail-body">
-            <p style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.25em;color:var(--accent);margin-bottom:14px">STEP 03 詳細 — アバン設計</p>
+            <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.25em;color:var(--accent);margin-bottom:14px">STEP 03 詳細 — アバン設計</p>
             <p style="font-size:13px;color:var(--text-2);margin-bottom:4px">動画のタイトルが出る前に流れる「つかみ」の作り方</p>
     
     <div class="flow">
@@ -1705,7 +1705,7 @@ code, .dm-mono {
               <span class="wf-detail-icon"><svg viewBox="0 0 10 10"><polyline points="1 3 5 7 9 3"/></svg></span>
             </button>
             <div class="wf-detail-body">
-            <p style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.25em;color:var(--accent);margin-bottom:14px">STEP 04 詳細 — BGM・音の使い方</p>
+            <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.25em;color:var(--accent);margin-bottom:14px">STEP 04 詳細 — BGM・音の使い方</p>
     
     <div class="card-grid">
       <div class="card">
@@ -1768,7 +1768,7 @@ code, .dm-mono {
               <span class="wf-detail-icon"><svg viewBox="0 0 10 10"><polyline points="1 3 5 7 9 3"/></svg></span>
             </button>
             <div class="wf-detail-body">
-            <p style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.25em;color:var(--accent);margin-bottom:14px">STEP 05 詳細 — インサートの使い方</p>
+            <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.25em;color:var(--accent);margin-bottom:14px">STEP 05 詳細 — インサートの使い方</p>
             <p style="font-size:13px;color:var(--text-2);margin-bottom:4px">映像を「補足」に使うな。「体験」に使え</p>
     
     <!-- 冒頭：誤解を正す -->
@@ -1779,7 +1779,7 @@ code, .dm-mono {
 
     <!-- 三層構造の概観 -->
     <div style="background:var(--bg-4);border:1px solid var(--border-2);border-radius:8px;padding:24px 28px;margin-bottom:48px">
-      <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">視聴維持率の高い動画の三層構造</div>
+      <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">視聴維持率の高い動画の三層構造</div>
       <div class="flow">
         <div class="flow-step" style="padding:14px 20px">① 大きな物語<br><span style="font-size:11px;opacity:.7">動画全体の構成</span></div>
         <div class="flow-arrow">→</div>
@@ -1791,14 +1791,14 @@ code, .dm-mono {
     </div>
 
     <!-- ======= PART 1: 物語を作る ======= -->
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:24px">PART 1 — インサートで「物語」を作る</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:24px">PART 1 — インサートで「物語」を作る</h3>
 
     <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
       インサートの究極形は<strong>再現ドラマ</strong>です。「世界仰天ニュース」などの番組が使う再現VTRは、説明ではなく追体験を作る。視聴者は「情報を受け取っている」のではなく「その場にいる感覚」で見ている。毎回キャスト・ロケを用意するのは現実的でないが、その原理はカットの組み合わせで再現できます。
     </p>
 
     <!-- お茶の例：1カット vs 3〜4カット -->
-    <div style="font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:.06em;color:var(--text);margin-bottom:16px">カットの数で「補足」が「体験」に変わる</div>
+    <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;letter-spacing:.06em;color:var(--text);margin-bottom:16px">カットの数で「補足」が「体験」に変わる</div>
     <div class="insert-grid" style="margin-bottom:40px">
       <div class="insert-card verb">
         <div class="insert-card-label" style="color:var(--text-2)">❌ 1カットだけ（補足止まり）</div>
@@ -1819,7 +1819,7 @@ code, .dm-mono {
     </div>
 
     <!-- ======= PART 2: 世界観を操作する ======= -->
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:24px">PART 2 — インサートで「世界観」を操作する</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:24px">PART 2 — インサートで「世界観」を操作する</h3>
 
     <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
       インサートには、世界観そのものを変える力がある。「お茶を飲む」という同じ行動でも、どのインサートを選ぶかで視聴者が頭の中で描く物語が完全に変わります。
@@ -1828,17 +1828,17 @@ code, .dm-mono {
     <!-- 世界観の例 -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:32px">
       <div style="background:#f7f5f0;border:1px solid var(--border);border-radius:8px;padding:16px 18px">
-        <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-2);letter-spacing:.08em;margin-bottom:8px">WORLD A</div>
+        <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-2);letter-spacing:.08em;margin-bottom:8px">WORLD A</div>
         <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">和室 × おばあちゃん</div>
         <p style="font-size:13px;color:var(--text-2);line-height:1.8">→ 懐かしさ / 家族 / 温もり / ゆったりした時間</p>
       </div>
       <div style="background:#f7f5f0;border:1px solid var(--border);border-radius:8px;padding:16px 18px">
-        <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-2);letter-spacing:.08em;margin-bottom:8px">WORLD B</div>
+        <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-2);letter-spacing:.08em;margin-bottom:8px">WORLD B</div>
         <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">大理石テーブル × 一人</div>
         <p style="font-size:13px;color:var(--text-2);line-height:1.8">→ 孤独 / 都会 / 洗練 / 何か考えている</p>
       </div>
       <div style="background:#f7f5f0;border:1px solid var(--border);border-radius:8px;padding:16px 18px">
-        <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-2);letter-spacing:.08em;margin-bottom:8px">WORLD C</div>
+        <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-2);letter-spacing:.08em;margin-bottom:8px">WORLD C</div>
         <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">山の上 × 景色</div>
         <p style="font-size:13px;color:var(--text-2);line-height:1.8">→ 達成感 / 自由 / 解放 / 人生の転機</p>
       </div>
@@ -1849,7 +1849,7 @@ code, .dm-mono {
     </div>
 
     <!-- 2種類のインサート -->
-    <div style="font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:.06em;color:var(--text);margin-bottom:16px">インサートの役割は2種類ある</div>
+    <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;letter-spacing:.06em;color:var(--text);margin-bottom:16px">インサートの役割は2種類ある</div>
     <div class="insert-grid" style="margin-bottom:48px">
       <div class="insert-card verb">
         <div class="insert-card-label">TYPE A — モノ・風景インサート</div>
@@ -1866,7 +1866,7 @@ code, .dm-mono {
     </div>
 
     <!-- ======= PART 3: 情報インサート vs 感情インサート ======= -->
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:24px">PART 3 — 情報インサート vs 感情インサート</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:22px;letter-spacing:.1em;color:var(--text-2);margin-bottom:24px">PART 3 — 情報インサート vs 感情インサート</h3>
 
     <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:20px">
       プロの編集者が「どこにどのインサートを入れるか」を判断するとき、最初に考えるのはこの分類です。インサートには目的が2種類あり、場面によって使い分ける。
@@ -1895,22 +1895,22 @@ code, .dm-mono {
 
     <!-- 配置のルール -->
     <div style="background:var(--bg-4);border:1px solid var(--border-2);border-radius:8px;padding:24px 28px;margin-bottom:32px">
-      <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">プロの配置ルール</div>
+      <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">プロの配置ルール</div>
       <div style="display:grid;gap:12px">
         <div style="display:flex;gap:12px;align-items:flex-start">
-          <div style="font-family:'Bebas Neue',cursive;color:var(--accent);font-size:13px;min-width:100px;padding-top:2px">情報の後</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;color:var(--accent);font-size:13px;min-width:100px;padding-top:2px">情報の後</div>
           <div style="font-size:14px;color:var(--text-2);line-height:1.8">情報インサートを入れて「理解」させてから、感情インサートで「共感」させる。理解が先にないと感情が動かない場面もある。</div>
         </div>
         <div style="border-top:1px solid #eee;padding-top:12px;display:flex;gap:12px;align-items:flex-start">
-          <div style="font-family:'Bebas Neue',cursive;color:var(--danger);font-size:13px;min-width:100px;padding-top:2px">感情的発言の直後</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;color:var(--danger);font-size:13px;min-width:100px;padding-top:2px">感情的発言の直後</div>
           <div style="font-size:14px;color:var(--text-2);line-height:1.8">感情インサートを優先します。発言の直後に表情や沈黙を入れると、その感情が視聴者に乗り移る。情報インサートを挟むと感情が冷める。</div>
         </div>
         <div style="border-top:1px solid #eee;padding-top:12px;display:flex;gap:12px;align-items:flex-start">
-          <div style="font-family:'Bebas Neue',cursive;color:var(--text-2);font-size:13px;min-width:100px;padding-top:2px">テンポが速い場面</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;color:var(--text-2);font-size:13px;min-width:100px;padding-top:2px">テンポが速い場面</div>
           <div style="font-size:14px;color:var(--text-2);line-height:1.8">情報インサートを短く刻む。1カット1〜2秒で切り替えることで、脳が考える前に次へ進む感覚を作れます。</div>
         </div>
         <div style="border-top:1px solid #eee;padding-top:12px;display:flex;gap:12px;align-items:flex-start">
-          <div style="font-family:'Bebas Neue',cursive;color:var(--text-2);font-size:13px;min-width:100px;padding-top:2px">感情を深める場面</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;color:var(--text-2);font-size:13px;min-width:100px;padding-top:2px">感情を深める場面</div>
           <div style="font-size:14px;color:var(--text-2);line-height:1.8">感情インサートを長めに置く。表情・沈黙・仕草に2〜4秒かけると、視聴者がその感情の中に留まる時間ができます。</div>
         </div>
       </div>
@@ -1971,7 +1971,7 @@ code, .dm-mono {
   <!-- テキスト -->
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:rgba(232,197,71,.7)">CHAPTER 06</span>
-    <span style="font-family:'Noto Serif JP','Shippori Mincho B1',serif;font-size:clamp(22px,3.5vw,38px);color:#f0ede8;letter-spacing:.12em;line-height:1.2;font-weight:600">タイムライン設計</span>
+    <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:#f0ede8;letter-spacing:.06em;line-height:1.3;font-weight:700">タイムライン設計</span>
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(240,237,232,.4)">TIMELINE DESIGN</span>
   </div>
   <!-- 右端のアクセントライン -->
@@ -1997,7 +1997,7 @@ code, .dm-mono {
     </div>
 
     <!-- トラックマップ表 -->
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">トラック構造マップ</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">トラック構造マップ</h3>
 
     <div class="table-wrap" style="margin-bottom:40px">
       <table>
@@ -2006,63 +2006,63 @@ code, .dm-mono {
         </thead>
         <tbody>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V8</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V8</td>
             <td><strong>トランジション / NAナレーション原稿 / インサート指示</strong></td>
             <td style="font-size:12px;color:var(--text-2)">編集指示・メモ用トラック</td>
           </tr>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V7</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V7</td>
             <td><strong>強調テロップ（演出）</strong></td>
             <td style="font-size:12px;color:var(--danger)">クリップが少ない箇所 → 単調な映像になっている</td>
           </tr>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V6</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V6</td>
             <td><strong>強調テロップ（演出）</strong></td>
             <td style="font-size:12px;color:var(--danger)">V6・V7が薄い区間は演出不足のサイン</td>
           </tr>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V5</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V5</td>
             <td><strong>字幕</strong></td>
             <td style="font-size:12px;color:var(--text-2)">全区間に均一に入っているのが理想</td>
           </tr>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V4</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V4</td>
             <td><strong>カラー調整</strong></td>
             <td style="font-size:12px;color:var(--text-2)">シーン単位でLUTを調整</td>
           </tr>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V3</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V3</td>
             <td><strong>モザイク・ブラー</strong></td>
             <td style="font-size:12px;color:var(--text-2)">必要箇所のみ</td>
           </tr>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V2</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--text-2)">V2</td>
             <td><strong>サブ映像素材・インサート</strong></td>
             <td style="font-size:12px;color:var(--text-2)">V1の上に重ねて場面を補完する</td>
           </tr>
           <tr style="background:rgba(232,197,71,.06)">
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--accent)">V1</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--accent)">V1</td>
             <td><strong>メイン映像素材</strong>　← 基本はここだけ</td>
             <td style="font-size:12px;color:var(--text-2)">インタビュー・メインの撮影素材</td>
           </tr>
           <tr><td colspan="3" style="background:var(--border);height:2px;padding:0"></td></tr>
           <tr style="background:rgba(232,197,71,.06)">
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--accent)">A1</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--accent)">A1</td>
             <td><strong>メイン音声</strong></td>
             <td style="font-size:12px;color:var(--text-2)">インタビュー・メイン発話。ノイズ処理済み</td>
           </tr>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--text-2)">A2</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--text-2)">A2</td>
             <td><strong>サブ音声・NAナレーション</strong></td>
             <td style="font-size:12px;color:var(--text-2)">環境音（アンビ）/ ナレーション</td>
           </tr>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--danger)">A3</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--danger)">A3</td>
             <td><strong>BGM</strong>　← 1動画15〜30曲</td>
             <td style="font-size:12px;color:var(--danger)">切れ目が少ない＝場面の感情・雰囲気が変化していない</td>
           </tr>
           <tr>
-            <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--text-2)">A4〜A6</td>
+            <td style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;letter-spacing:.05em;color:var(--text-2)">A4〜A6</td>
             <td><strong>SE（効果音）</strong></td>
             <td style="font-size:12px;color:var(--text-2)">必要に応じてトラックを追加</td>
           </tr>
@@ -2071,7 +2071,7 @@ code, .dm-mono {
     </div>
 
     <!-- 診断ガイド -->
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)">シーケンス診断の見方</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)">シーケンス診断の見方</h3>
     <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:20px">上のシーケンス画像を開いたとき、以下の2点を確認するだけで動画の弱い部分がわかります。</p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:40px">
@@ -2098,7 +2098,7 @@ code, .dm-mono {
 
     <hr class="sec-divider">
 
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:.06em;margin-bottom:8px">3秒ルール — 画角変更の鉄則</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:24px;letter-spacing:.06em;margin-bottom:8px">3秒ルール — 画角変更の鉄則</h3>
     <p style="font-size:13px;color:var(--text-2);margin-bottom:24px">「3秒」は最小単位。実際には4つの尺に分解して考えます。</p>
 
     <div class="highlight highlight-danger" style="margin-bottom:36px">
@@ -2110,8 +2110,8 @@ code, .dm-mono {
 
       <div style="display:grid;grid-template-columns:120px 1fr;border:1px solid var(--border);border-bottom:none">
         <div style="background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 10px;border-right:2px solid var(--accent)">
-          <span style="font-family:'Bebas Neue',cursive;font-size:26px;color:var(--accent);line-height:1">3〜5秒</span>
-          <span style="font-family:'Bebas Neue',cursive;font-size:9px;letter-spacing:.2em;color:var(--text-3);margin-top:4px">INSERT</span>
+          <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:26px;color:var(--accent);line-height:1">3〜5秒</span>
+          <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:9px;letter-spacing:.2em;color:var(--text-3);margin-top:4px">INSERT</span>
         </div>
         <div style="padding:16px 20px">
           <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">インサート尺</p>
@@ -2121,8 +2121,8 @@ code, .dm-mono {
 
       <div style="display:grid;grid-template-columns:120px 1fr;border:1px solid var(--border);border-bottom:none">
         <div style="background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 10px;border-right:2px solid var(--warn)">
-          <span style="font-family:'Bebas Neue',cursive;font-size:26px;color:var(--warn);line-height:1">15秒</span>
-          <span style="font-family:'Bebas Neue',cursive;font-size:9px;letter-spacing:.2em;color:var(--text-3);margin-top:4px">VLOG</span>
+          <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:26px;color:var(--warn);line-height:1">15秒</span>
+          <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:9px;letter-spacing:.2em;color:var(--text-3);margin-top:4px">VLOG</span>
         </div>
         <div style="padding:16px 20px">
           <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">VLOG尺 — 人間性が見える雑談</p>
@@ -2132,8 +2132,8 @@ code, .dm-mono {
 
       <div style="display:grid;grid-template-columns:120px 1fr;border:1px solid var(--border);border-bottom:none;background:rgba(232,197,71,.06)">
         <div style="background:rgba(232,197,71,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 10px;border-right:2px solid var(--accent)">
-          <span style="font-family:'Bebas Neue',cursive;font-size:26px;color:var(--accent);line-height:1">60秒</span>
-          <span style="font-family:'Bebas Neue',cursive;font-size:9px;letter-spacing:.2em;color:rgba(14,165,233,.5);margin-top:4px">SCENE</span>
+          <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:26px;color:var(--accent);line-height:1">60秒</span>
+          <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:9px;letter-spacing:.2em;color:rgba(14,165,233,.5);margin-top:4px">SCENE</span>
         </div>
         <div style="padding:16px 20px">
           <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">本編シーン尺 — 1つの話題は60秒でまとめる</p>
@@ -2143,8 +2143,8 @@ code, .dm-mono {
 
       <div style="display:grid;grid-template-columns:120px 1fr;border:1px solid var(--border)">
         <div style="background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 10px;border-right:2px solid #2050C8">
-          <span style="font-family:'Bebas Neue',cursive;font-size:26px;color:var(--accent);line-height:1">180秒</span>
-          <span style="font-family:'Bebas Neue',cursive;font-size:9px;letter-spacing:.2em;color:var(--accent);margin-top:4px">CORE</span>
+          <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:26px;color:var(--accent);line-height:1">180秒</span>
+          <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:9px;letter-spacing:.2em;color:var(--accent);margin-top:4px">CORE</span>
         </div>
         <div style="padding:16px 20px">
           <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">訴求パート — 最も伝えたいことは180秒</p>
@@ -2158,22 +2158,22 @@ code, .dm-mono {
 
     <!-- サマリーバー -->
     <div style="background:var(--bg-4);border:1px solid var(--border-2);border-radius:var(--r);padding:16px 20px;margin-bottom:36px">
-      <p style="font-family:'Bebas Neue',cursive;font-size:10px;letter-spacing:.28em;color:var(--text-3);margin-bottom:12px">4つの尺のまとめ</p>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.28em;color:var(--text-3);margin-bottom:12px">4つの尺のまとめ</p>
       <div style="display:flex;gap:0;flex-wrap:wrap">
         <div style="flex:1;min-width:72px;text-align:center;padding:8px;border-right:1px solid var(--border-2)">
-          <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--accent)">3〜5秒</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:20px;color:var(--accent)">3〜5秒</div>
           <div style="font-size:10px;color:var(--text-3);margin-top:2px">インサート</div>
         </div>
         <div style="flex:1;min-width:72px;text-align:center;padding:8px;border-right:1px solid var(--border-2)">
-          <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--warn)">15秒</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:20px;color:var(--warn)">15秒</div>
           <div style="font-size:10px;color:var(--text-3);margin-top:2px">VLOG</div>
         </div>
         <div style="flex:1;min-width:72px;text-align:center;padding:8px;border-right:1px solid var(--border-2);background:rgba(232,197,71,.06)">
-          <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--accent)">60秒</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:20px;color:var(--accent)">60秒</div>
           <div style="font-size:10px;color:var(--text-3);margin-top:2px">本編シーン</div>
         </div>
         <div style="flex:1;min-width:72px;text-align:center;padding:8px">
-          <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--accent)">180秒</div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:20px;color:var(--accent)">180秒</div>
           <div style="font-size:10px;color:var(--text-3);margin-top:2px">訴求コア</div>
         </div>
       </div>
@@ -2220,7 +2220,7 @@ code, .dm-mono {
   <!-- テキスト -->
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:rgba(232,197,71,.7)">CHAPTER 07</span>
-    <span style="font-family:'Noto Serif JP','Shippori Mincho B1',serif;font-size:clamp(22px,3.5vw,38px);color:#f0ede8;letter-spacing:.12em;line-height:1.2;font-weight:600">構成設計</span>
+    <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:#f0ede8;letter-spacing:.06em;line-height:1.3;font-weight:700">構成設計</span>
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(240,237,232,.4)">STRUCTURE DESIGN</span>
   </div>
   <!-- 右端のアクセントライン -->
@@ -2249,7 +2249,7 @@ code, .dm-mono {
       </a>
     </div>
 
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(22px,4vw,32px);color:var(--text);letter-spacing:.04em;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)">1語ゴール設計</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(22px,4vw,32px);color:var(--text);letter-spacing:.04em;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)">1語ゴール設計</h3>
 
     <div class="highlight highlight-warn" style="margin-bottom:32px">
       <p>この動画が終わったとき、見ている人の心に残る気持ちを<strong style="color:var(--warn)">1語</strong>で言えるか？<br>「感動」「驚き」「やる気」「怖い」「誇り」——これが決まらないと編集は始められない。</p>
@@ -2284,7 +2284,7 @@ code, .dm-mono {
 
     <hr class="sec-divider" style="margin-top:48px">
 
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(22px,4vw,32px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--border)">宇宙兄弟から学ぶ構造</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(22px,4vw,32px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--border)">宇宙兄弟から学ぶ構造</h3>
 
     <div class="accordion">
       <div class="acc-item">
@@ -2312,7 +2312,7 @@ code, .dm-mono {
 
     <hr class="sec-divider">
 
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(22px,4vw,32px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--border)">構成プロット：2つの型</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(22px,4vw,32px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--border)">構成プロット：2つの型</h3>
 
     <div class="card-grid">
       <div class="card">
@@ -2354,7 +2354,7 @@ code, .dm-mono {
   <!-- テキスト -->
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:rgba(232,197,71,.7)">CHAPTER 08</span>
-    <span style="font-family:'Noto Serif JP','Shippori Mincho B1',serif;font-size:clamp(22px,3.5vw,38px);color:#f0ede8;letter-spacing:.12em;line-height:1.2;font-weight:600">キャラクター設計</span>
+    <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:#f0ede8;letter-spacing:.06em;line-height:1.3;font-weight:700">キャラクター設計</span>
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(240,237,232,.4)">CHARACTER DESIGN</span>
   </div>
   <!-- 右端のアクセントライン -->
@@ -2376,7 +2376,7 @@ code, .dm-mono {
             <text x="28" y="50" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7" fill="#e84444">TRIGGER</text>
           </svg>
         </div>
-        <div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:var(--danger);letter-spacing:.06em;margin-bottom:8px">感情トリガー</div>
+        <div style="font-family:'Noto Sans JP',sans-serif;font-size:14px;font-weight:600;color:var(--danger);letter-spacing:.06em;margin-bottom:8px">感情トリガー</div>
         <div style="font-size:12px;color:var(--text-2);line-height:1.8">視聴者が「この人の話は自分に関係ある」と感じる瞬間。弱さ・失敗・葛藤を見せる。</div>
       </div>
 
@@ -2389,7 +2389,7 @@ code, .dm-mono {
             <text x="28" y="50" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7" fill="#e8c547" dy="-2">CONFLICT</text>
           </svg>
         </div>
-        <div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:var(--accent);letter-spacing:.06em;margin-bottom:8px">葛藤・対立</div>
+        <div style="font-family:'Noto Sans JP',sans-serif;font-size:14px;font-weight:600;color:var(--accent);letter-spacing:.06em;margin-bottom:8px">葛藤・対立</div>
         <div style="font-size:12px;color:var(--text-2);line-height:1.8">キャラクターが何かと戦っている状態。内面の葛藤か外部の障害か。これがないと物語が動かない。</div>
       </div>
 
@@ -2403,14 +2403,14 @@ code, .dm-mono {
             <text x="28" y="50" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7" fill="#4ade80" dy="-2">CHANGE</text>
           </svg>
         </div>
-        <div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:var(--ok);letter-spacing:.06em;margin-bottom:8px">変化・成長</div>
+        <div style="font-family:'Noto Sans JP',sans-serif;font-size:14px;font-weight:600;color:var(--ok);letter-spacing:.06em;margin-bottom:8px">変化・成長</div>
         <div style="font-size:12px;color:var(--text-2);line-height:1.8">動画の終わりに「この人は変わった」が見える。視聴者自身も何かを得た感覚で終わる構造。</div>
       </div>
 
     </div>
 
 
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:.06em;margin-bottom:20px">弱さの設計</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:24px;letter-spacing:.06em;margin-bottom:20px">弱さの設計</h3>
 
     <div class="highlight highlight-warn" style="margin-bottom:28px">
       <p>人は「完璧な人」には共感できない。<strong style="color:var(--warn)">弱さ・欠点・悩み</strong>があるから「分かる」と感じ、応援したくなります。撮影する相手の「弱さ」を引き出すことが、共感を作るいちばん大事な仕事です。</p>
@@ -2437,7 +2437,7 @@ code, .dm-mono {
 
     <hr class="sec-divider">
 
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)">キャラクターの引き出し方（インタビュー設計）</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)">キャラクターの引き出し方（インタビュー設計）</h3>
 
     <div class="accordion">
       <div class="acc-item">
@@ -2476,7 +2476,7 @@ code, .dm-mono {
   <!-- テキスト -->
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:rgba(232,197,71,.7)">CHAPTER 09</span>
-    <span style="font-family:'Noto Serif JP','Shippori Mincho B1',serif;font-size:clamp(22px,3.5vw,38px);color:#f0ede8;letter-spacing:.12em;line-height:1.2;font-weight:600">撮影基本</span>
+    <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:#f0ede8;letter-spacing:.06em;line-height:1.3;font-weight:700">撮影基本</span>
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(240,237,232,.4)">SHOOTING BASICS</span>
   </div>
   <!-- 右端のアクセントライン -->
@@ -2487,7 +2487,7 @@ code, .dm-mono {
   <div class="container">
 
 
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">撮影の5W1H</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">撮影の5W1H</h3>
 
     <div class="table-wrap">
       <table>
@@ -2507,7 +2507,7 @@ code, .dm-mono {
 
     <hr class="sec-divider">
 
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)">距離と角度の意味</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)">距離と角度の意味</h3>
 
     <div class="angle-grid">
       <div class="angle-card">
@@ -2559,7 +2559,7 @@ code, .dm-mono {
   <!-- テキスト -->
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:rgba(232,197,71,.7)">CHAPTER 10</span>
-    <span style="font-family:'Noto Serif JP','Shippori Mincho B1',serif;font-size:clamp(22px,3.5vw,38px);color:#f0ede8;letter-spacing:.12em;line-height:1.2;font-weight:600">テロップ設計</span>
+    <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:#f0ede8;letter-spacing:.06em;line-height:1.3;font-weight:700">テロップ設計</span>
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:rgba(240,237,232,.4)">CAPTION DESIGN</span>
   </div>
   <!-- 右端のアクセントライン -->
@@ -2624,7 +2624,7 @@ code, .dm-mono {
 
     <hr class="sec-divider">
 
-    <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)">図解テロップの種類</h3>
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)">図解テロップの種類</h3>
 
     <div class="table-wrap">
       <table>
@@ -2647,7 +2647,7 @@ code, .dm-mono {
 <!-- FOOTER -->
 <footer>
   <div style="width:40px;height:1px;margin:0 auto 32px;background:var(--grad-main)"></div>
-  <div style="font-family:'Bebas Neue',cursive;font-size:32px;letter-spacing:.28em;margin-bottom:12px;
+  <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:32px;letter-spacing:.28em;margin-bottom:12px;
     background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">EDIT MANUAL</div>
   <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px">Editing As Brain Science. — 社会に中指を立てる作品を — © 2025</div>
   <div style="display:flex;justify-content:center;gap:8px">
