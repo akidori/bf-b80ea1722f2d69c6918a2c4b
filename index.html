@@ -2,9 +2,9 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="「クオリティの高い動画」とは何か？脳科学の観点から分析した、編集手法の仮説集。">
+<meta name="description" content="クオリティの高い動画を脳科学の観点から分析した、編集手法の仮説集。">
 <meta property="og:title" content="EDITING AS BRAIN SCIENCE.">
-<meta property="og:description" content="「クオリティの高い動画」とは何か？脳科学の観点から分析した、編集手法の仮説集。">
+<meta property="og:description" content="クオリティの高い動画を脳科学の観点から分析した、編集手法の仮説集。">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0ea5e9">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -33,9 +33,9 @@
   --border-3:  rgba(255,255,255,.22);
 
   /* ── Text ── */
-  --text:      #f0ede8;
-  --text-2:    #9d9a94;
-  --text-3:    #5a5754;
+  --text:      #f4f1ec;
+  --text-2:    #b0ada6;
+  --text-3:    #6e6b66;
   --text-inv:  #0d0d0f;
 
   /* ── Accent: 映画フィルムのような電球オレンジ〜赤 ── */
@@ -853,6 +853,11 @@ code, .dm-mono {
 /* ══════════════════════════════ */
 /* ══ LIGHT MODE ══ */
 
+
+/* ライトモード スクロールバー */
+[data-theme="light"] ::-webkit-scrollbar-track { background: var(--bg-2); }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: var(--bg-4); }
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: var(--bg-5); }
 /* ライトモード バナーオーバーレイ調整 */
 [data-theme="light"] .chapter-banner-overlay {
   background: linear-gradient(90deg, rgba(245,243,239,.88) 0%, rgba(245,243,239,.35) 60%, transparent 100%) !important;
@@ -906,13 +911,13 @@ code, .dm-mono {
 /* ライトモード時のhero */
 [data-theme="light"] .hero::before {
   background:
-    radial-gradient(ellipse 60% 70% at 80% 100%,rgba(184,134,11,.05) 0%,transparent 60%),
-    radial-gradient(ellipse 40% 50% at 5% 0%,rgba(192,57,43,.03) 0%,transparent 55%);
+    radial-gradient(ellipse 60% 70% at 80% 100%,rgba(40,200,180,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 50% at 5% 0%,rgba(240,200,32,.05) 0%,transparent 55%);
 }
 
 /* ライトモード時のhero FLIP透かし */
 [data-theme="light"] .hero::after {
-  color: rgba(184,134,11,.04);
+  color: rgba(40,200,180,.05);
 }
 
 /* ── テーマトグルボタン ── */
@@ -1045,7 +1050,7 @@ code, .dm-mono {
       </div>
 
       <p class="hero-desc">
-        「クオリティの高い動画」とは何か？脳科学の観点から分析した、<br>編集手法の仮説集です。
+        クオリティの高い動画を脳科学の観点から分析した、<br>編集手法の仮説集です。
       </p>
     </div>
   
@@ -1124,26 +1129,26 @@ code, .dm-mono {
     </p>
     <div style="text-align:center;padding:28px 0;margin-bottom:32px">
       <p style="font-family:'Noto Sans JP',sans-serif;font-size:20px;color:var(--text);line-height:1.7;font-weight:500">
-        「できるだけ、余計な負荷はかけたくない」
+        「できるなら、余計な負荷はかけたくない」
       </p>
     </div>
 
     <p style="color:var(--text-2);font-size:14px;line-height:2.1;margin-bottom:32px">
       考えること、判断すること、感情を動かすこと——これは全部エネルギーを使う。<br>
-      これは怠けではなく、<strong style="color:var(--text-2)">生き残るための本能</strong>です。<br>
-      同じ負荷が続くと脳は省エネモードに入ります。この省エネモードに入った瞬間、人は「つまらない」と感じる前に、静かに拒絶します。
+      これは怠けではなく、<strong style="color:var(--text-2)">生き残るための設計</strong>です。<br>
+      同じ負荷が続くと脳は省エネモードに入ります。この省エネモードに入った瞬間、人は「つまらない」と感じる前に、静かに離脱します。
     </p>
 
     <!-- ── 逆説 ── -->
     <div style="border-top:1px solid var(--border);border-bottom:1px solid rgba(255,255,255,.06);padding:32px 0;margin-bottom:32px">
       <p style="color:var(--text-2);font-size:16px;line-height:2;margin-bottom:16px">
-        「じゃあ、30秒以上の動画は誰も見られないじゃないか！」
+        「じゃあ、30秒以上の動画は誰も見られないじゃないか」
       </p>
       <p style="color:var(--text-2);font-size:14px;line-height:2;margin-bottom:16px">
-        そう思いますよね。私もそう思います。
+        そう思われるかもしれません。私もそう思っていました。
       </p>
       <p style="color:var(--text-2);font-size:15px;line-height:2.1">
-        ここで朗報——<strong style="color:var(--text)">30秒以上見せる方法が、あります。</strong>
+        でも——<strong style="color:var(--text)">30秒以上見せる方法が、あります。</strong>
       </p>
     </div>
 
@@ -1165,7 +1170,7 @@ code, .dm-mono {
       これを考えたとき、私は「新しい発明だ」と感じました。
     </p>
     <p style="color:var(--text-2);font-size:14px;line-height:2.1;margin-bottom:8px">
-      でもよく考えたら、世の中にすでに当たり前のように存在していたんです。
+      でもよく考えたら、世の中にすでに当たり前のように存在していた。
     </p>
 
     <div style="text-align:center;padding:32px 0;margin-bottom:12px">
@@ -1201,15 +1206,14 @@ code, .dm-mono {
     <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(24px,4vw,36px);color:var(--text);letter-spacing:.03em;margin-bottom:20px;line-height:1.1">外部流入時代に必要なのは、<br>圧倒的なコンテンツクオリティだ</h3>
 
     <p style="color:var(--text-2);font-size:15px;line-height:2.1;margin-bottom:28px">
-      なぜ動画のクオリティを求めるのか？<br>
       これまで日本のYouTubeでは「外部流入はNG」とされてきた。<br>
       理由は単純で、外部から来た視聴者は維持率が下がり、エンゲージメントが悪化するからです。
     </p>
 
     <p style="color:var(--text-2);font-size:14px;line-height:2.1;margin-bottom:28px">
       しかし韓国・アメリカでは、外部流入を<strong style="color:var(--text-2)">積極的に活用</strong>しているチャンネルが多いです。<br>
-      BreakingDown・ラストコールなどを手がける溝口さんのチームも、ショート動画をX・TikTok・Instagramに積極展開しています。<br>
-      その他海外のクリエイターも同様の戦略を取っています。
+      BreakingDown・ラストコールなどを手がける溝口氏のチームも、ショート動画をX・TikTok・Instagramに積極展開しています。<br>
+      Netflixも同様の戦略を取っています。
     </p>
 
     <!-- なぜ可能なのか -->
@@ -1236,7 +1240,7 @@ code, .dm-mono {
         外部流入時代で戦えるのは、圧倒的なコンテンツクオリティを持つチャンネルだけです。
       </p>
       <p style="font-size:13px;color:var(--text-2);line-height:2;margin-top:10px">
-        溝口さんのチームのような戦略を将来とるためには、まず「誰が見ても面白い」動画を作れる状態が前提条件になる。<br>
+        溝口チームのような戦略を将来とるためには、まず「誰が見ても面白い」動画を作れる状態が前提条件になる。<br>
         そのための動画クオリティを上げることが、このマニュアルの目的でもあります。
       </p>
     </div>
