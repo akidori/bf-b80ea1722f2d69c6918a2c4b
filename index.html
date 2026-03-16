@@ -1064,23 +1064,17 @@ code, .dm-mono {
   margin-top: 14px;
 }
 
-/* genre-contentはデフォルト非表示（data-pageシステムで制御） */
-.genre-content:not(.genre-header):not([data-page]) {
-  display: none !important;
-}
-/* genre-headerは常に非表示 */
+/* genre-headerは非表示 */
 .genre-header {
   display: none !important;
 }
-/* data-pageを持つ要素のデフォルト（JSで !important 上書き可能） */
-[data-page] {
-  display: none;
+/* data-pageなしのgenre-contentは非表示 */
+.genre-content:not(.genre-header):not([data-page]) {
+  display: none !important;
 }
-/* アクティブなページを表示 */
-[data-page].page-active {
-  display: block !important;
-  visibility: visible !important;
-  animation: pageSlideIn .28s cubic-bezier(.4,0,.2,1) forwards;
+/* ページ表示はJSのみで制御 (CSSのdisplay noneは使わない) */
+[data-page] {
+  /* display は JS の inline style で制御 */
 }
 @keyframes pageSlideIn {
   from { opacity: 0; transform: translateY(8px); }
@@ -1459,7 +1453,7 @@ body { padding-left: 56px; padding-bottom: 72px; }
     <div class="sb-logo-mark">AK</div>
   </div>
 
-  <!-- マインドセット -->
+  <!-- 動画編集理論 -->
   <div class="sb-section">
     <button class="sb-btn active" data-g="mindset" onclick="showGenre('mindset',this)">
       <span class="sb-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8c547" stroke-width="1.5" stroke-linecap="round"><path d="M9.5 2C7 2 5 4 5 6.5c0 .8.2 1.5.5 2.1C4 9.3 3 10.8 3 12.5 3 15 5 17 7.5 17H9v2.5a2.5 2.5 0 005 0V17h1.5C18 17 20 15 20 12.5c0-1.7-1-3.2-2.5-3.9.3-.6.5-1.3.5-2.1C18 4 16 2 13.5 2c-1.2 0-2.3.5-3.1 1.2C9.8 2.5 9.7 2 9.5 2z"/></svg></span>
@@ -1468,9 +1462,9 @@ body { padding-left: 56px; padding-bottom: 72px; }
     </button>
     <div class="sb-flyout">
       <div class="sb-fly-header">
-        <span class="sb-fly-kicker">GENRE 01 — MINDSET</span>
-        <div class="sb-fly-genre">マインドセット</div>
-        <span class="sb-fly-sub">MINDSET & BRAIN SCIENCE</span>
+        <span class="sb-fly-kicker">GENRE 01 — 動画編集理論</span>
+        <div class="sb-fly-genre">動画編集理論</div>
+        <span class="sb-fly-sub">動画編集理論</span>
         <p class="sb-fly-desc">編集を始める前に持つべき思考と、<br>動画が面白くなる脳科学的な仕組みを理解する。</p>
       </div>
       <div class="sb-fly-list">
@@ -1773,56 +1767,23 @@ body { padding-left: 56px; padding-bottom: 72px; }
 
 <!-- 認証JS -->
 <script>
-(function() {
-  var authed = sessionStorage.getItem('bf_auth') === '1';
-  if (authed) {
-    document.getElementById('password-screen').style.display = 'none';
-    // 認証済みなら目次を表示
-    var toc = document.getElementById('toc-screen');
-    if (toc) toc.style.display = 'flex';
-    // TOC表示中はナビ非表示
-    var nb = document.getElementById('ch-nav-bar');
-    if (nb) nb.style.display = 'none';
-    var fh = document.querySelector('.film-header');
-    if (fh) fh.style.display = 'none';
-    var nv = document.querySelector('.nav');
-    if (nv) nv.style.display = 'none';
-  }
-})();
-
 function checkPassword() {
   var val = document.getElementById('pw-input').value;
-  // パスワードここで設定 ↓
   var correct = 'flipthebird';
   if (val === correct) {
     sessionStorage.setItem('bf_auth', '1');
     var screen = document.getElementById('password-screen');
-    screen.style.transition = 'opacity .45s';
+    screen.style.transition = 'opacity .4s';
     screen.style.opacity = '0';
     setTimeout(function() {
       screen.style.display = 'none';
-      // 目次画面を表示
-      var toc = document.getElementById('toc-screen');
-      if (toc) {
-        toc.style.display = 'flex';
-        toc.style.opacity = '0';
-        toc.style.transition = 'opacity .4s';
-        setTimeout(function() { toc.style.opacity = '1'; }, 20);
-      }
-      // TOC表示中はナビバー・ヘッダーを非表示
-      var nb = document.getElementById('ch-nav-bar');
-      if (nb) nb.style.display = 'none';
-      var fh = document.querySelector('.film-header');
-      if (fh) fh.style.display = 'none';
-      var nv = document.querySelector('.nav');
-      if (nv) nv.style.display = 'none';
-    }, 450);
+      APP.showTOC();
+    }, 400);
   } else {
     var err = document.getElementById('pw-error');
     err.style.display = 'block';
-    var input = document.getElementById('pw-input');
-    input.value = '';
-    input.focus();
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
     setTimeout(function() { err.style.display = 'none'; }, 2500);
   }
 }
@@ -1862,8 +1823,8 @@ function checkPassword() {
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:52px">
 
       <div onclick="enterGenre('mindset')" style="position:relative;overflow:hidden;border:1px solid rgba(232,197,71,.15);border-left:3px solid #e8c547;border-radius:3px;background:rgba(232,197,71,.03);padding:26px 22px;cursor:pointer;transition:all .22s;" onmouseover="this.style.background='rgba(232,197,71,.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(232,197,71,.03)';this.style.transform='translateY(0)'">
-        <div style="font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.26em;color:rgba(232,197,71,.45);margin-bottom:9px">GENRE 01 — MINDSET</div>
-        <div style="font-family:'Bebas Neue','Noto Sans JP',sans-serif;font-size:30px;color:#f0ece6;line-height:1;margin-bottom:9px">マインドセット</div>
+        <div style="font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.26em;color:rgba(232,197,71,.45);margin-bottom:9px">GENRE 01 — 動画編集理論</div>
+        <div style="font-family:'Bebas Neue','Noto Sans JP',sans-serif;font-size:30px;color:#f0ece6;line-height:1;margin-bottom:9px">動画編集理論</div>
         <div style="font-size:11.5px;color:rgba(176,173,166,.55);line-height:1.7;margin-bottom:16px">脳科学と編集者の思考基盤</div>
         <div style="display:flex;gap:5px;flex-wrap:wrap">
           <span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.45);border:1px solid rgba(232,197,71,.15);padding:2px 8px;border-radius:2px">CH00</span>
@@ -1913,11 +1874,11 @@ function checkPassword() {
       <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.26em;color:rgba(232,197,71,.38);margin-bottom:20px">ALL CHAPTERS — 12 TOTAL</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px">
 
-        <a href="#ch00" onclick="showChPage('ch00');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH00</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">はじめに</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">MINDSET</span></a>
+        <a href="#ch00" onclick="showChPage('ch00');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH00</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">はじめに</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">動画編集理論</span></a>
 
-        <a href="#ch01" onclick="showChPage('ch01');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH01</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">マインドセット</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">MINDSET</span></a>
+        <a href="#ch01" onclick="showChPage('ch01');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH01</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">マインドセット</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">動画編集理論</span></a>
 
-        <a href="#ch02" onclick="showChPage('ch02-1');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH02</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">脳・30秒理論</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">MINDSET</span></a>
+        <a href="#ch02" onclick="showChPage('ch02-1');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH02</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">脳・30秒理論</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">動画編集理論</span></a>
 
         <a href="#ch03" onclick="showChPage('ch03-1');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(220,80,60,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(220,80,60,.45);width:28px;flex-shrink:0">CH03</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">タイムライン設計</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(220,80,60,.28);margin-left:auto">EDITING</span></a>
 
@@ -2001,7 +1962,7 @@ function checkPassword() {
   </style>
   <div class="nav-inner">
     <div class="nav-genre-wrap">
-      <a href="#" class="nav-item nav-genre active" data-genre="mindset" onclick="showGenre('mindset',this);return false;">マインドセット</a>
+      <a href="#" class="nav-item nav-genre active" data-genre="mindset" onclick="showGenre('mindset',this);return false;">動画編集理論</a>
       <div class="nav-genre-dropdown">
         <a href="#ch00" class="nav-dropdown-item" onclick="showChPage('ch00');return false;">
           <span class="nav-dropdown-item-num">CH00</span><span class="nav-dropdown-item-title">はじめに</span>
@@ -2063,7 +2024,7 @@ function checkPassword() {
 </nav>
 
 <!-- HERO -->
-<!-- ジャンルヘッダー: マインドセット -->
+<!-- ジャンルヘッダー: 動画編集理論 -->
 <div class="genre-content genre-header" data-genre="mindset" style="position:relative;overflow:hidden;min-height:260px;display:flex;align-items:flex-end;background:linear-gradient(135deg,rgba(13,13,15,1) 0%,rgba(18,16,10,1) 100%);">
   <div style="position:absolute;inset:0;background:repeating-linear-gradient(-52deg,transparent 0,transparent 40px,rgba(232,197,71,.02) 40px,rgba(232,197,71,.02) 41px);pointer-events:none;z-index:0"></div>
   <div style="position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,#e8c547 0%,rgba(232,197,71,.15) 70%,transparent 100%);z-index:1"></div>
@@ -2074,9 +2035,9 @@ function checkPassword() {
   </svg>
   <div class="container" style="position:relative;z-index:1;padding-bottom:36px;padding-top:44px;">
     <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.32em;color:rgba(232,197,71,.55);margin-bottom:10px;display:flex;align-items:center;gap:10px;">
-      <span style="display:inline-block;width:24px;height:1px;background:#e8c547;opacity:.5"></span>GENRE 01 — MINDSET
+      <span style="display:inline-block;width:24px;height:1px;background:#e8c547;opacity:.5"></span>GENRE 01 — 動画編集理論
     </div>
-    <div style="font-family:'Bebas Neue','Noto Sans JP',sans-serif;font-size:clamp(44px,6.5vw,80px);color:#f0ece6;line-height:.85;letter-spacing:.03em;margin-bottom:14px;text-shadow:0 0 60px rgba(232,197,71,.1)">マインドセット</div>
+    <div style="font-family:'Bebas Neue','Noto Sans JP',sans-serif;font-size:clamp(44px,6.5vw,80px);color:#f0ece6;line-height:.85;letter-spacing:.03em;margin-bottom:14px;text-shadow:0 0 60px rgba(232,197,71,.1)">動画編集理論</div>
     <p style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:rgba(176,173,166,.58);line-height:1.85;margin-bottom:18px;max-width:440px;">編集を始める前に持つべき思考と、動画が面白くなる脳科学的な仕組みを理解する。</p>
     <div style="display:flex;gap:7px;flex-wrap:wrap;">
       <span style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;color:rgba(232,197,71,.55);border:1px solid rgba(232,197,71,.22);padding:4px 12px;border-radius:2px;background:rgba(232,197,71,.04);">CH00 はじめに</span>
@@ -2091,7 +2052,7 @@ function checkPassword() {
   <div class="container">
     <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.38em;color:rgba(232,197,71,.5);margin-bottom:4px">CONTENTS</p>
     <div class="toc-grid">
-      <a href="#ch00" class="toc-card feat" data-num="00"><span class="toc-num">CH00</span><div class="toc-name">マインドセット</div></a>
+      <a href="#ch00" class="toc-card feat" data-num="00"><span class="toc-num">CH00</span><div class="toc-name">動画編集理論</div></a>
       <a href="#ch01" class="toc-card feat" data-num="01"><span class="toc-num">CH01</span><div class="toc-name">脳の構造と30秒理論</div></a>
       <a href="#ch05" class="toc-card" data-num="05"><span class="toc-num">CH05</span><div class="toc-name">ワークフロー</div></a>
       <a href="#ch06" class="toc-card" data-num="06"><span class="toc-num">CH06</span><div class="toc-name">タイムライン</div></a>
@@ -2192,7 +2153,7 @@ function checkPassword() {
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:var(--accent-b,rgba(232,197,71,.7))">CHAPTER 01</span>
     <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:var(--text);letter-spacing:.06em;line-height:1.3;font-weight:700">マインドセット</span>
-    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--text-3)">MINDSET</span>
+    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--text-3)">動画編集理論</span>
   </div>
   <!-- 右端のアクセントライン -->
   <div style="position:absolute;right:0;top:0;bottom:0;width:3px;background:var(--grad-main)"></div>
@@ -5697,133 +5658,219 @@ sections.forEach(s=>observer.observe(s));
 
 
 <script>
+// ══════════════════════════════════════════════
+//  EDIT MANUAL — ページ管理システム v3
+// ══════════════════════════════════════════════
 
-// ══════════════════════════════════════════════
-//  CHページ管理システム
-// ══════════════════════════════════════════════
 var CH_LIST = [
-  {id:'ch00',   genre:'mindset',  title:'はじめに',                        num:'00'},
-  {id:'ch01',   genre:'mindset',  title:'マインドセット',                  num:'01'},
-  {id:'ch02-1', genre:'mindset',  title:'脳・30秒理論 — 脳の5段階処理',   num:'02'},
-  {id:'ch02-2', genre:'mindset',  title:'脳・30秒理論 — 各部位の作り方',  num:'02'},
-  {id:'ch02-3', genre:'mindset',  title:'脳・30秒理論 — 30秒理論',         num:'02'},
-  {id:'ch02-4', genre:'mindset',  title:'脳・30秒理論 — エンタメ化',      num:'02'},
-  {id:'ch03-1', genre:'editing',  title:'タイムライン設計 — カットの基本', num:'03'},
-  {id:'ch03-2', genre:'editing',  title:'タイムライン設計 — シーケンス構造',num:'03'},
-  {id:'ch03-3', genre:'editing',  title:'タイムライン設計 — トラックマップ',num:'03'},
-  {id:'ch03-4', genre:'editing',  title:'タイムライン設計 — 3秒ルール',   num:'03'},
-  {id:'ch04',   genre:'editing',  title:'インサート設計',                  num:'04'},
-  {id:'ch05-1', genre:'design',   title:'ワークフロー — 1語ゴール設計',   num:'05'},
-  {id:'ch05-2', genre:'design',   title:'ワークフロー — 構成プロット',     num:'05'},
-  {id:'ch05-3', genre:'design',   title:'ワークフロー — 感情曲線・ブリッジ',num:'05'},
-  {id:'ch06',   genre:'editing',  title:'動画構成の作り方',                num:'06'},
-  {id:'ch07-1', genre:'editing',  title:'テロップ設計 — 図解テロップ',    num:'07'},
-  {id:'ch07-2', genre:'editing',  title:'テロップ設計 — テロップ細則',    num:'07'},
-  {id:'ch07-3', genre:'editing',  title:'テロップ設計 — CTA設計',         num:'07'},
-  {id:'ch08',   genre:'editing',  title:'MAとBGM',                         num:'08'},
-  {id:'ch09-1', genre:'editing',  title:'チェックリスト — 構成設計',      num:'09'},
-  {id:'ch09-2', genre:'editing',  title:'チェックリスト — 書き出し設定',  num:'09'},
-  {id:'ch09-3', genre:'editing',  title:'チェックリスト — セルフレビュー',num:'09'},
-  {id:'ch10-1', genre:'design',   title:'キャラクター設計 — 弱さの設計',  num:'10'},
+  {id:'ch00',   genre:'mindset',  title:'はじめに',                           num:'00'},
+  {id:'ch01',   genre:'mindset',  title:'マインドセット',                     num:'01'},
+  {id:'ch02-1', genre:'mindset',  title:'脳・30秒理論 — 脳の5段階処理',      num:'02'},
+  {id:'ch02-2', genre:'mindset',  title:'脳・30秒理論 — 各部位の作り方',     num:'02'},
+  {id:'ch02-3', genre:'mindset',  title:'脳・30秒理論 — 30秒理論',            num:'02'},
+  {id:'ch02-4', genre:'mindset',  title:'脳・30秒理論 — エンタメ化',         num:'02'},
+  {id:'ch03-1', genre:'editing',  title:'タイムライン設計 — カットの基本',   num:'03'},
+  {id:'ch03-2', genre:'editing',  title:'タイムライン設計 — シーケンス構造', num:'03'},
+  {id:'ch03-3', genre:'editing',  title:'タイムライン設計 — トラックマップ', num:'03'},
+  {id:'ch03-4', genre:'editing',  title:'タイムライン設計 — 3秒ルール',      num:'03'},
+  {id:'ch04',   genre:'editing',  title:'インサート設計',                     num:'04'},
+  {id:'ch05-1', genre:'design',   title:'ワークフロー — 1語ゴール設計',      num:'05'},
+  {id:'ch05-2', genre:'design',   title:'ワークフロー — 構成プロット',        num:'05'},
+  {id:'ch05-3', genre:'design',   title:'ワークフロー — 感情曲線・ブリッジ', num:'05'},
+  {id:'ch06',   genre:'editing',  title:'動画構成の作り方',                   num:'06'},
+  {id:'ch07-1', genre:'editing',  title:'テロップ設計 — 図解テロップ',       num:'07'},
+  {id:'ch07-2', genre:'editing',  title:'テロップ設計 — テロップ細則',       num:'07'},
+  {id:'ch07-3', genre:'editing',  title:'テロップ設計 — CTA設計',            num:'07'},
+  {id:'ch08',   genre:'editing',  title:'MAとBGM',                            num:'08'},
+  {id:'ch09-1', genre:'editing',  title:'チェックリスト — 構成設計',         num:'09'},
+  {id:'ch09-2', genre:'editing',  title:'チェックリスト — 書き出し設定',     num:'09'},
+  {id:'ch09-3', genre:'editing',  title:'チェックリスト — セルフレビュー',   num:'09'},
+  {id:'ch10-1', genre:'design',   title:'キャラクター設計 — 弱さの設計',     num:'10'},
   {id:'ch10-2', genre:'design',   title:'キャラクター設計 — インタビュー設計',num:'10'},
-  {id:'ch11-1', genre:'shooting', title:'撮影基本 — 撮影の5W1H',          num:'11'},
-  {id:'ch11-2', genre:'shooting', title:'撮影基本 — 距離と角度',          num:'11'},
-  {id:'ch11-3', genre:'shooting', title:'撮影基本 — 応用テクニック',      num:'11'},
+  {id:'ch11-1', genre:'shooting', title:'撮影基本 — 撮影の5W1H',             num:'11'},
+  {id:'ch11-2', genre:'shooting', title:'撮影基本 — 距離と角度',             num:'11'},
+  {id:'ch11-3', genre:'shooting', title:'撮影基本 — 応用テクニック',         num:'11'},
 ];
 
 var currentPageIndex = -1;
 var panelOpen = false;
+var appReady = false;
 
-// ジャンル内のCH一覧
-function getGenreChs(genre) {
-  return CH_LIST.filter(function(ch){ return ch.genre === genre; });
-}
+// ────────────────────────────────
+//  APP オブジェクト（公開API）
+// ────────────────────────────────
+var APP = {
 
-// CHページを表示（data-page方式）
-function showChPage(chId, skipScroll) {
-  var idx = CH_LIST.findIndex(function(c){ return c.id === chId; });
-  if (idx < 0) return;
+  // 初期化（DOMContentLoadedで呼ぶ）
+  init: function() {
+    // 全data-page要素をinline styleで非表示
+    document.querySelectorAll('[data-page]').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    // サブページインジケーター追加
+    addSubPageIndicators();
+    appReady = true;
 
-  // 全data-page要素を非表示
-  document.querySelectorAll('[data-page]').forEach(function(el){
-    el.classList.remove('page-active');
-    el.style.setProperty('display', 'none', 'important');
-    el.style.removeProperty('visibility');
-    el.style.removeProperty('opacity');
-  });
+    // 認証済みかチェック
+    var authed = sessionStorage.getItem('bf_auth') === '1';
+    if (authed) {
+      // URLハッシュがあればそのページへ、なければTOCへ
+      var hashPage = getPageFromHash();
+      if (hashPage) {
+        APP.showPage(hashPage);
+      } else {
+        APP.showTOC();
+      }
+    }
+    // 未認証はパスワード画面のまま（デフォルト表示）
+  },
 
-  // 対象CHのdata-page要素を全て表示
-  document.querySelectorAll('[data-page="' + chId + '"]').forEach(function(el){
-    el.style.setProperty('display', 'block', 'important');
-    el.style.setProperty('visibility', 'visible', 'important');
-    el.style.setProperty('opacity', '1', 'important');
-    el.classList.add('page-active');
-  });
+  // TOCを表示
+  showTOC: function() {
+    // CHページ非表示
+    document.querySelectorAll('[data-page]').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    // ナビ類を非表示
+    var nb = document.getElementById('ch-nav-bar');
+    if (nb) nb.style.display = 'none';
+    var fh = document.querySelector('.film-header');
+    if (fh) fh.style.display = 'none';
+    var nv = document.querySelector('.nav');
+    if (nv) nv.style.display = 'none';
+    // TOC表示
+    var toc = document.getElementById('toc-screen');
+    if (toc) {
+      toc.style.opacity = '0';
+      toc.style.display = 'flex';
+      requestAnimationFrame(function() {
+        toc.style.transition = 'opacity .35s';
+        toc.style.opacity = '1';
+      });
+    }
+    currentPageIndex = -1;
+  },
 
-  currentPageIndex = idx;
+  // CHページを表示
+  showPage: function(chId) {
+    var idx = CH_LIST.findIndex(function(c) { return c.id === chId; });
+    if (idx < 0) {
+      // ch02 → ch02-1 のようなベース→サブ変換
+      var sub = CH_LIST.find(function(c) { return c.id === chId + '-1'; });
+      if (sub) { APP.showPage(sub.id); return; }
+      return;
+    }
 
-  // ナビバー更新
-  updateNavBar(idx);
+    // TOCを非表示
+    var toc = document.getElementById('toc-screen');
+    if (toc) toc.style.display = 'none';
 
-  // ジャンルナビも更新
-  var genre = CH_LIST[idx].genre;
-  var navBtn = document.querySelector('.nav-genre[data-genre="' + genre + '"]');
-  if (navBtn) {
-    document.querySelectorAll('.nav-genre').forEach(function(el){ el.classList.remove('active'); });
-    navBtn.classList.add('active');
+    // 全data-page非表示
+    document.querySelectorAll('[data-page]').forEach(function(el) {
+      el.style.display = 'none';
+    });
+
+    // 対象CHのdata-page要素を表示
+    var targets = document.querySelectorAll('[data-page="' + chId + '"]');
+    targets.forEach(function(el) {
+      el.style.display = 'block';
+    });
+
+    currentPageIndex = idx;
+
+    // ナビ類を表示
+    var nb = document.getElementById('ch-nav-bar');
+    if (nb) nb.style.display = 'flex';
+    var fh = document.querySelector('.film-header');
+    if (fh) fh.style.display = '';
+    var nv = document.querySelector('.nav');
+    if (nv) nv.style.display = '';
+    var sb = document.getElementById('sidebar');
+    if (sb) { sb.style.display = 'flex'; sb.style.opacity = '1'; }
+
+    // ナビバー更新
+    updateNavBar(idx);
+
+    // URLハッシュ更新
+    var baseId = chId.indexOf('-') >= 0 ? 'ch' + CH_LIST[idx].num : chId;
+    history.replaceState(null, '', '#' + baseId);
+
+    // スクロールトップ
+    window.scrollTo(0, 0);
+
+    // アニメーション
+    targets.forEach(function(el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(10px)';
+      requestAnimationFrame(function() {
+        el.style.transition = 'opacity .28s ease, transform .28s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    });
+
+    // film-headerのジャンルタグ更新
+    updateFilmHeader(CH_LIST[idx].genre);
+
+    closeCHPanel();
   }
+};
+
+// ────────────────────────────────
+//  グローバル関数（後方互換）
+// ────────────────────────────────
+function showChPage(chId) { APP.showPage(chId); }
+
+function showGenre(genre) {
+  var first = CH_LIST.find(function(c) { return c.genre === genre; });
+  if (first) APP.showPage(first.id);
+  // ナビアクティブ更新
+  document.querySelectorAll('.nav-genre').forEach(function(el) { el.classList.remove('active'); });
+  var btn = document.querySelector('.nav-genre[data-genre="' + genre + '"]');
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('.sb-btn').forEach(function(el) { el.classList.remove('active'); });
   var sbBtn = document.querySelector('.sb-btn[data-g="' + genre + '"]');
-  if (sbBtn) {
-    document.querySelectorAll('.sb-btn').forEach(function(el){ el.classList.remove('active'); });
-    sbBtn.classList.add('active');
-  }
-
-  // ナビバー・ヘッダー表示
-  var navBar = document.getElementById('ch-nav-bar');
-  if (navBar) navBar.style.display = 'flex';
-  var filmHeader = document.querySelector('.film-header');
-  if (filmHeader) filmHeader.style.display = '';
-  var nav = document.querySelector('.nav');
-  if (nav) nav.style.display = '';
-  var sidebar = document.getElementById('sidebar');
-  if (sidebar) { sidebar.style.display = 'flex'; sidebar.style.opacity = '1'; }
-  // film-headerのジャンルタグ更新
-  var genre = CH_LIST[idx].genre;
-  updateFilmHeader(genre);
-
-  // スクロールトップ
-  if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  // パネルを閉じる
-  closeCHPanel();
+  if (sbBtn) sbBtn.classList.add('active');
 }
 
-// ナビバーの表示を更新
+function enterManual() {
+  var toc = document.getElementById('toc-screen');
+  if (toc) { toc.style.transition = 'opacity .3s'; toc.style.opacity = '0';
+    setTimeout(function() { APP.showPage('ch00'); }, 300); }
+  else { APP.showPage('ch00'); }
+}
+
+function enterGenre(genre) {
+  var toc = document.getElementById('toc-screen');
+  var first = CH_LIST.find(function(c) { return c.genre === genre; });
+  if (!first) return;
+  if (toc) { toc.style.transition = 'opacity .3s'; toc.style.opacity = '0';
+    setTimeout(function() { APP.showPage(first.id); }, 300); }
+  else { APP.showPage(first.id); }
+}
+
+// ────────────────────────────────
+//  ナビバー
+// ────────────────────────────────
+function getGenreChs(genre) {
+  return CH_LIST.filter(function(c) { return c.genre === genre; });
+}
+
 function updateNavBar(idx) {
   var ch = CH_LIST[idx];
-
-  // 現在CH番号 + サブタイトル
   var chnum = document.getElementById('ch-nav-chnum');
-  // サブページの場合 "02-3" → "CH02" + サブ部分をテキストで
-  var displayNum = 'CH' + ch.num;
-  var subLabel = '';
-  if (ch.id.indexOf('-') >= 0) {
-    var parts = ch.title.split(' — ');
-    subLabel = parts.length > 1 ? parts[1] : '';
-  }
-  if (chnum) chnum.textContent = displayNum;
+  if (chnum) chnum.textContent = 'CH' + ch.num;
 
-  // サブラベル表示
   var chsub = document.getElementById('ch-nav-sub');
   if (!chsub) {
     chsub = document.createElement('div');
     chsub.id = 'ch-nav-sub';
-    chsub.style.cssText = 'font-family:"Noto Sans JP",sans-serif;font-size:9px;color:rgba(240,236,230,.45);letter-spacing:.04em;margin-top:1px;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center';
+    chsub.style.cssText = 'font-family:"Noto Sans JP",sans-serif;font-size:9px;color:rgba(240,236,230,.45);margin-top:1px;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center';
     if (chnum && chnum.parentNode) chnum.parentNode.insertBefore(chsub, chnum.nextSibling);
   }
-  if (chsub) chsub.textContent = subLabel;
+  var subTitle = ch.title.split(' — ')[1] || '';
+  if (chsub) chsub.textContent = subTitle;
 
-  // 前ページ
   var prevBtn = document.getElementById('ch-nav-prev');
   var prevHint = document.getElementById('ch-prev-hint');
   var prevTitle = document.getElementById('ch-prev-title');
@@ -5838,7 +5885,6 @@ function updateNavBar(idx) {
     if (prevTitle) prevTitle.textContent = '—';
   }
 
-  // 次ページ
   var nextBtn = document.getElementById('ch-nav-next');
   var nextHint = document.getElementById('ch-next-hint');
   var nextTitle = document.getElementById('ch-next-title');
@@ -5853,205 +5899,172 @@ function updateNavBar(idx) {
     if (nextTitle) nextTitle.textContent = '—';
   }
 
-  // ドット進捗: 同じnum内のサブページをドットで表示
+  // ドット進捗
   var progress = document.getElementById('ch-nav-progress');
   if (progress) {
     progress.innerHTML = '';
-    // 同じnumを持つページを取得
-    var sameChs = CH_LIST.filter(function(c){ return c.num === ch.num; });
-    sameChs.forEach(function(item) {
-      var dot = document.createElement('div');
-      dot.className = 'ch-nav-dot' + (item.id === ch.id ? ' active' : '');
-      dot.title = item.title;
-      dot.onclick = (function(id){ return function(){ showChPage(id); }; })(item.id);
-      progress.appendChild(dot);
-    });
-    // サブページが1つしかない場合はドット非表示
-    if (sameChs.length <= 1) progress.style.display = 'none';
-    else progress.style.display = 'flex';
+    var sameChs = CH_LIST.filter(function(c) { return c.num === ch.num; });
+    if (sameChs.length > 1) {
+      progress.style.display = 'flex';
+      sameChs.forEach(function(item) {
+        var dot = document.createElement('div');
+        dot.className = 'ch-nav-dot' + (item.id === ch.id ? ' active' : '');
+        dot.title = item.title;
+        dot.onclick = (function(id) { return function() { APP.showPage(id); }; })(item.id);
+        progress.appendChild(dot);
+      });
+    } else {
+      progress.style.display = 'none';
+    }
   }
+
+  // ナビアクティブ更新
+  var genre = ch.genre;
+  document.querySelectorAll('.nav-genre').forEach(function(el) { el.classList.remove('active'); });
+  var navBtn = document.querySelector('.nav-genre[data-genre="' + genre + '"]');
+  if (navBtn) navBtn.classList.add('active');
+  document.querySelectorAll('.sb-btn').forEach(function(el) { el.classList.remove('active'); });
+  var sbBtn = document.querySelector('.sb-btn[data-g="' + genre + '"]');
+  if (sbBtn) sbBtn.classList.add('active');
 }
 
-// 前のページへ
 function chPagePrev() {
-  if (currentPageIndex > 0) showChPage(CH_LIST[currentPageIndex - 1].id);
+  if (currentPageIndex > 0) APP.showPage(CH_LIST[currentPageIndex - 1].id);
 }
-// 次のページへ
 function chPageNext() {
-  if (currentPageIndex < CH_LIST.length - 1) showChPage(CH_LIST[currentPageIndex + 1].id);
+  if (currentPageIndex < CH_LIST.length - 1) APP.showPage(CH_LIST[currentPageIndex + 1].id);
 }
 
-// パネル開閉
+// ────────────────────────────────
+//  パネル
+// ────────────────────────────────
 function toggleChPanel() {
   panelOpen = !panelOpen;
   var panel = document.getElementById('ch-nav-panel');
   if (!panel) return;
-  if (panelOpen) {
-    panel.classList.add('open');
-    buildChPanel();
-  } else {
-    panel.classList.remove('open');
-  }
+  if (panelOpen) { panel.classList.add('open'); buildChPanel(); }
+  else panel.classList.remove('open');
 }
 function closeCHPanel() {
   panelOpen = false;
   var panel = document.getElementById('ch-nav-panel');
   if (panel) panel.classList.remove('open');
 }
-
-// パネルのCH一覧を構築（全ジャンル区切り + サブページグループ表示）
-function buildChPanel() {
-  var panel = document.getElementById('ch-nav-panel');
-  if (!panel) return;
-  panel.innerHTML = '';
-
-  var genres = [
-    {key:'mindset',  label:'マインドセット'},
-    {key:'design',   label:'設計'},
-    {key:'editing',  label:'編集'},
-    {key:'shooting', label:'撮影'},
-  ];
-
-  genres.forEach(function(g) {
-    var chs = getGenreChs(g.key);
-    if (!chs.length) return;
-
-    // ジャンルラベル
-    var lbl = document.createElement('div');
-    lbl.style.cssText = 'font-family:"DM Mono",monospace;font-size:7.5px;letter-spacing:.2em;color:rgba(232,197,71,.35);padding:6px 12px 3px;';
-    lbl.textContent = g.label.toUpperCase();
-    panel.appendChild(lbl);
-
-    // 同じnumをまとめてグループ表示
-    var seen = {};
-    chs.forEach(function(ch) {
-      var titleMain = ch.title.split(' — ')[0];
-      var titleSub  = ch.title.split(' — ')[1] || '';
-      var isCurrent = ch.id === CH_LIST[currentPageIndex].id;
-      var isSameGroup = ch.num === CH_LIST[currentPageIndex].num;
-
-      var item = document.createElement('div');
-      item.className = 'ch-nav-panel-item' + (isCurrent ? ' current' : '');
-      
-      // サブページは少しインデント
-      var indent = (ch.id.indexOf('-') >= 0 && seen[ch.num]) ? '28px' : '0';
-      item.style.paddingLeft = 'calc(12px + ' + indent + ')';
-
-      if (!seen[ch.num]) {
-        // 最初のサブページ or 単独ページ
-        item.innerHTML = '<span class="ch-nav-panel-num">CH' + ch.num + '</span><span class="ch-nav-panel-title">' + titleMain + (titleSub ? ' <span style="opacity:.5;font-size:.85em">— ' + titleSub + '</span>' : '') + '</span>';
-        seen[ch.num] = true;
-      } else {
-        // 2個目以降のサブページ
-        item.innerHTML = '<span class="ch-nav-panel-num" style="opacity:.3">·</span><span class="ch-nav-panel-title" style="font-size:10.5px;opacity:.75">' + (titleSub || titleMain) + '</span>';
-      }
-      
-      item.onclick = (function(id){ return function(){ showChPage(id); }; })(ch.id);
-      panel.appendChild(item);
-    });
-  });
-}
-
-// パネル外クリックで閉じる
 document.addEventListener('click', function(e) {
   var center = document.querySelector('.ch-nav-center');
   if (center && !center.contains(e.target)) closeCHPanel();
 });
 
-// キーボードショートカット
+function buildChPanel() {
+  var panel = document.getElementById('ch-nav-panel');
+  if (!panel) return;
+  panel.innerHTML = '';
+  var genres = [
+    {key:'mindset',  label:'動画編集理論'},
+    {key:'design',   label:'設計'},
+    {key:'editing',  label:'編集'},
+    {key:'shooting', label:'撮影'},
+  ];
+  genres.forEach(function(g) {
+    var chs = getGenreChs(g.key);
+    if (!chs.length) return;
+    var lbl = document.createElement('div');
+    lbl.style.cssText = 'font-family:"DM Mono",monospace;font-size:7.5px;letter-spacing:.2em;color:rgba(232,197,71,.35);padding:8px 12px 3px;text-transform:uppercase';
+    lbl.textContent = g.label;
+    panel.appendChild(lbl);
+    var seen = {};
+    chs.forEach(function(ch) {
+      var titleMain = ch.title.split(' — ')[0];
+      var titleSub  = ch.title.split(' — ')[1] || '';
+      var item = document.createElement('div');
+      item.className = 'ch-nav-panel-item' + (ch.id === CH_LIST[currentPageIndex].id ? ' current' : '');
+      if (seen[ch.num]) {
+        item.style.paddingLeft = '40px';
+        item.innerHTML = '<span class="ch-nav-panel-num" style="opacity:.3">·</span><span class="ch-nav-panel-title" style="font-size:10.5px;opacity:.75">' + (titleSub || titleMain) + '</span>';
+      } else {
+        item.innerHTML = '<span class="ch-nav-panel-num">CH' + ch.num + '</span><span class="ch-nav-panel-title">' + titleMain + (titleSub ? '<span style="opacity:.45;font-size:.85em"> — ' + titleSub + '</span>' : '') + '</span>';
+        seen[ch.num] = true;
+      }
+      item.onclick = (function(id) { return function() { APP.showPage(id); }; })(ch.id);
+      panel.appendChild(item);
+    });
+  });
+}
+
+// ────────────────────────────────
+//  キーボード
+// ────────────────────────────────
 document.addEventListener('keydown', function(e) {
   if (currentPageIndex < 0) return;
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') chPagePrev();
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   chPagePrev();
   if (e.key === 'ArrowRight' || e.key === 'ArrowDown') chPageNext();
   if (e.key === 'Escape') closeCHPanel();
 });
 
-// ══════════════════════════════════════════════
-//  showGenre の上書き（ジャンル表示 → 最初のCHへ）
-// ══════════════════════════════════════════════
-function showGenre(genre, clickedEl) {
-  // ナビアクティブ切り替え
-  var navByGenre = document.querySelector('.nav-genre[data-genre="' + genre + '"]');
-  document.querySelectorAll('.nav-genre').forEach(function(el){ el.classList.remove('active'); });
-  if (navByGenre) navByGenre.classList.add('active');
-  else if (clickedEl && clickedEl.classList && clickedEl.classList.contains('nav-genre')) {
-    clickedEl.classList.add('active');
-  }
-
-  // そのジャンルの最初のCHを表示
-  var first = CH_LIST.find(function(c){ return c.genre === genre; });
-  if (first) showChPage(first.id);
+// ────────────────────────────────
+//  ユーティリティ
+// ────────────────────────────────
+function getPageFromHash() {
+  var hash = window.location.hash.replace('#', '');
+  if (!hash) return null;
+  var exact = CH_LIST.find(function(c) { return c.id === hash; });
+  if (exact) return exact.id;
+  var sub = CH_LIST.find(function(c) { return c.id === hash + '-1'; });
+  if (sub) return sub.id;
+  return null;
 }
 
-// enterManual: 目次→マニュアル（マインドセット最初のCHへ）
-function enterManual() {
-  var toc = document.getElementById('toc-screen');
-  if (toc) {
-    toc.style.transition = 'opacity .3s';
-    toc.style.opacity = '0';
-    setTimeout(function(){ toc.style.display = 'none'; }, 300);
-  }
-  setTimeout(function(){ showChPage('ch00'); }, 150);
-}
-
-// enterGenre: 目次のジャンルカード → ジャンル最初のCHへ
-function enterGenre(genre) {
-  var toc = document.getElementById('toc-screen');
-  if (toc) {
-    toc.style.transition = 'opacity .3s';
-    toc.style.opacity = '0';
-    setTimeout(function(){ toc.style.display = 'none'; }, 300);
-  }
-  setTimeout(function(){
-    var first = CH_LIST.find(function(c){ return c.genre === genre; });
-    if (first) showChPage(first.id);
-  }, 150);
-}
-
-
-// 初期表示はTOCから（認証後に呼ばれる）
-
-// スクロールトップボタンの表示制御
-window.addEventListener('scroll', function() {
-  var btn = document.getElementById('scroll-top-btn');
-  if (!btn) return;
-  if (window.scrollY > 400) btn.classList.add('visible');
-  else btn.classList.remove('visible');
-});
-
-// film-headerのジャンルタグを動的に更新
 function updateFilmHeader(genre) {
-  var genreNames = {mindset:'マインドセット', editing:'編集', design:'設計', shooting:'撮影'};
+  var genreNames = {mindset:'動画編集理論', editing:'編集', design:'設計', shooting:'撮影'};
   var tag = document.getElementById('film-genre-tag');
   if (!tag) {
-    var titleBar = document.querySelector('.film-title-bar');
-    if (titleBar) {
+    var bar = document.querySelector('.film-title-bar');
+    if (bar) {
       tag = document.createElement('span');
       tag.id = 'film-genre-tag';
       tag.className = 'film-genre-tag';
-      titleBar.appendChild(tag);
+      bar.appendChild(tag);
     }
   }
   if (tag) tag.textContent = genreNames[genre] || '';
 }
 
+function addSubPageIndicators() {
+  CH_LIST.forEach(function(ch) {
+    if (ch.id.indexOf('-') < 0) return;
+    var subNum = parseInt(ch.id.split('-')[1]);
+    if (subNum <= 1) return;
+    var selector = '[data-page="' + ch.id + '"][id="' + ch.id + '"]';
+    var page = document.querySelector(selector);
+    if (!page) return;
+    var container = page.querySelector('.container');
+    if (!container || container.querySelector('.subpage-indicator')) return;
+    var titleSub = (ch.title.split(' — ')[1]) || ch.title;
+    var indicator = document.createElement('div');
+    indicator.className = 'subpage-indicator';
+    indicator.innerHTML = [
+      '<div style="padding:32px 0 28px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:40px;position:relative;overflow:hidden">',
+      '<div style="font-family:DM Mono,monospace;font-size:8.5px;letter-spacing:.3em;color:rgba(232,197,71,.5);margin-bottom:8px">CH' + ch.num + ' — ' + titleSub + '</div>',
+      '<div style="font-family:Bebas Neue,Noto Sans JP,sans-serif;font-size:clamp(28px,4vw,48px);color:#f0ece6;line-height:.9;letter-spacing:.03em">' + titleSub + '</div>',
+      '<div style="position:absolute;right:0;bottom:-10px;font-family:Bebas Neue,sans-serif;font-size:100px;color:rgba(232,197,71,.04);line-height:1;pointer-events:none">' + ch.num + '</div>',
+      '</div>'
+    ].join('');
+    container.insertBefore(indicator, container.firstChild);
+  });
+}
+
+// スクロールトップボタン
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scroll-top-btn');
+  if (btn) btn.classList.toggle('visible', window.scrollY > 400);
+});
+
+// ────────────────────────────────
+//  DOMContentLoaded → 初期化
+// ────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
-  // サブページのインジケーターを追加
-  addSubPageIndicators();
-  // URLハッシュがあれば認証済みの場合にそのページを開く
-  var authedNow = sessionStorage.getItem('bf_auth') === '1';
-  if (authedNow) {
-    var initPage = getInitialPageFromHash();
-    if (initPage) {
-      // TOCを非表示にしてそのページへ
-      var toc = document.getElementById('toc-screen');
-      if (toc) toc.style.display = 'none';
-      showChPage(initPage, true);
-      return;
-    }
-  }
-  // 未認証 or ハッシュなし → TOCまたはパスワード画面
+  APP.init();
 });
 </script>
 
