@@ -1561,15 +1561,16 @@ body {
       .stim-item .stim-panel {}
       .stim-panel-inner {
         margin-left:36px;padding:0 0 14px 0;
-        display:grid;grid-template-columns:1fr 1fr;gap:10px;
+        display:grid;grid-template-columns: 1fr;gap:10px;
       }
       @media(max-width:600px){ .stim-panel-inner { grid-template-columns:1fr; } }
       .stim-detail-box {
-        padding:13px 15px;font-size:12px;line-height:1.85;color:var(--text-2);
+        padding: 18px 20px;font-size: 13.5px;line-height: 1.9;color:var(--text-2);
       }
       .stim-detail-label {
-        font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;
-        font-weight:600;margin-bottom:6px;
+        font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;
+        font-weight:700;margin-bottom:10px;display:block;
+        padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.08);
       }
     
 /* ── 脳の背景装飾 ── */
@@ -1765,7 +1766,7 @@ body::before {
     <p style="font-size:12px;color:var(--text-2);margin-bottom:48px">※ 脳はエネルギー消費が軽い部位から重い部位の順で処理します。この流れに逆らうと視聴者は離脱する。</p>
 
     <!-- 5枚のブレインカード -->
-    <div class="brain-grid" style="grid-template-columns:1fr 1fr;gap:16px">
+    <div class="brain-grid" style="grid-template-columns:1fr;gap:12px">
 
       <div class="brain-card amygdala">
         <div class="brain-card-title" style="font-size:15px">① 扁桃体 — 感情と自分ごと化</div>
@@ -1854,7 +1855,7 @@ body::before {
       </p>
 
       <!-- 比較カード -->
-      <div class="insert-grid" style="margin-bottom:20px">
+      <div class="insert-grid" style="grid-template-columns:1fr;gap:10px">
         <div class="insert-card verb" style="border-color:rgba(232,52,28,.4);border-left-color:var(--ok)">
           <div class="insert-card-label" style="color:var(--ok)">✅ 扁桃体刺激（ファンになる）</div>
           <p style="margin-bottom:10px">「10年間ずっと後悔してきた」「あのとき諦めなければよかった」</p>
@@ -1901,7 +1902,7 @@ body::before {
         この構造を維持するために必要なのが<strong>ブリッジ（文脈のつなぎ）</strong>です。シーンが変わるとき、視聴者が「なぜ場面が変わったのか」を考えなければいけない状態になると、前頭前野を使わせてしまう。前頭前野を使わせると動画は疲れます。
       </p>
 
-      <div class="insert-grid" style="margin-bottom:16px">
+      <div class="insert-grid" style="grid-template-columns:1fr;gap:10px">
         <div class="insert-card verb" style="border-color:rgba(200,169,110,.4)">
           <div class="insert-card-label" style="color:var(--warn)">ブリッジありの例</div>
           <p>手帳の話 →「実際に見せてもらえますか？」→ オフィスへ移動 → 実物の手帳を見せる</p>
@@ -1928,7 +1929,7 @@ body::before {
         扁桃体で「自分に関係ある」、大脳辺縁系で「続きが気になる」状態になった視聴者に、次に届けるのは<strong>共感</strong>です。共感が生まれた後にはじめて前頭前野が働き、「この人の話をもっと聞きたい」という状態になる。<strong>共感 → 思考の順番が重要。</strong>
       </p>
 
-      <div class="insert-grid" style="margin-bottom:16px">
+      <div class="insert-grid" style="grid-template-columns:1fr;gap:10px">
         <div class="insert-card verb" style="border-color:rgba(100,100,200,.4)">
           <div class="insert-card-label" style="color:var(--cyan)">① 言語による共感（聴覚）</div>
           <h4>言葉で共感を生む</h4>
@@ -2430,7 +2431,7 @@ body::before {
 
     <!-- お茶の例：1カット vs 3〜4カット -->
     <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;letter-spacing:.06em;color:var(--text);margin-bottom:16px">カットの数で「補足」が「体験」に変わる</div>
-    <div class="insert-grid" style="margin-bottom:40px">
+    <div class="insert-grid" style="grid-template-columns:1fr;gap:10px">
       <div class="insert-card verb">
         <div class="insert-card-label" style="color:var(--text-2)">❌ 1カットだけ（補足止まり）</div>
         <h4>「私はお茶を飲みました」</h4>
@@ -2481,7 +2482,7 @@ body::before {
 
     <!-- 2種類のインサート -->
     <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;letter-spacing:.06em;color:var(--text);margin-bottom:16px">インサートの役割は2種類ある</div>
-    <div class="insert-grid" style="margin-bottom:48px">
+    <div class="insert-grid" style="grid-template-columns:1fr;gap:10px">
       <div class="insert-card verb">
         <div class="insert-card-label">TYPE A — モノ・風景インサート</div>
         <h4>世界の「場所」を決める</h4>
@@ -2503,7 +2504,7 @@ body::before {
       プロの編集者が「どこにどのインサートを入れるか」を判断するとき、最初に考えるのはこの分類です。インサートには目的が2種類あり、場面によって使い分ける。
     </p>
 
-    <div class="insert-grid" style="margin-bottom:32px">
+    <div class="insert-grid" style="grid-template-columns:1fr;gap:10px">
       <div class="insert-card verb" style="border-color:rgba(0,80,200,.3)">
         <div class="insert-card-label">情報インサート（前頭前野に届ける）</div>
         <h4>「何の話か」を理解させる</h4>
@@ -3926,6 +3927,22 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+
+// ── 元のコンテンツから引き継ぐ関数群 ──
+function toggleWfDetail(btn) {
+  var detail = btn.closest('.wf-detail');
+  if (detail) detail.classList.toggle('open');
+}
+
+function toggleBrain(trigger) {
+  var card = trigger.closest('.brain-card');
+  if (card) card.classList.toggle('open');
+}
+
+function toggleAcc(btn) {
+  var item = btn.closest('.acc-item');
+  if (item) item.classList.toggle('open');
+}
 </script>
 
 </body>
